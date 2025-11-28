@@ -9,6 +9,7 @@
             <img
               src="/logo.png"
               alt="CuestionaBle Logo"
+              loading="lazy"
               class="h-8 w-8 object-contain rounded-lg bg-white p-0.5"
             />
             <h3 class="text-lg font-bold m-0">CuestionaBle Mentorship</h3>

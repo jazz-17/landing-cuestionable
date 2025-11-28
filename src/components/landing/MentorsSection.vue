@@ -25,8 +25,6 @@
     </div>
   </div>
 
-
-
   <MentorBioModal
     :is-open="isBioModalOpen"
     :mentor-name="selectedBio.name"
@@ -42,9 +40,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import MentorCard from "./MentorCard.vue";
 import MentorBioModal from "./MentorBioModal.vue";
+import { useScrollReveal } from "@/composables/useScrollReveal";
 
 defineProps({
   mentors: {
@@ -55,26 +54,7 @@ defineProps({
 
 const mentorItems = ref([]);
 
-onMounted(() => {
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  mentorItems.value.forEach((el) => {
-    if (el) observer.observe(el);
-  });
-});
+useScrollReveal(mentorItems);
 
 const isBioModalOpen = ref(false);
 

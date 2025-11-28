@@ -9,6 +9,7 @@
         v-if="image"
         :src="imageUrl"
         :alt="name"
+        loading="lazy"
         class="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-105"
       />
       <div
@@ -35,12 +36,11 @@
           </h3>
         </div>
         <div
-          class="flex justify-center items-center  px-3 py-1 bg-brand-bg-secondary text-[var(--primary-dark)] text-sm font-semibold rounded-full text-nowrap"
+          class="flex justify-center items-center px-3 py-1 bg-brand-bg-secondary text-[var(--primary-dark)] text-sm font-semibold rounded-full text-nowrap"
         >
           {{ topic }}
         </div>
       </div>
-
 
       <button
         class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-xl text-[15px] font-semibold cursor-pointer transition-all duration-200 hover:bg-[var(--primary-dark)] hover:shadow-md active:translate-y-[1px]"
@@ -114,7 +114,8 @@ const showBioModal = () => {
 };
 
 const imageUrl = computed(() => {
-  if (props.image.startsWith("http://") || props.image.startsWith("https://")) {
+  if (!props.image) return "";
+  if (props.image.startsWith("/") || props.image.startsWith("http")) {
     return props.image;
   }
   return `${import.meta.env.BASE_URL}${props.image}`;

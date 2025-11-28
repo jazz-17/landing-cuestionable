@@ -14,6 +14,8 @@
         <img
           src="/logo.png"
           alt="CuestionaBle Logo"
+          width="32"
+          height="32"
           class="h-8 w-8 object-contain rounded-lg"
         />
         <span class="text-base md:text-lg">CuestionaBle</span>

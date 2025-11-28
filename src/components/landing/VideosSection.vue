@@ -42,9 +42,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import VideoThumbnail from "./VideoThumbnail.vue";
 import VideoModal from "./VideoModal.vue";
+import { useScrollReveal } from "@/composables/useScrollReveal";
 
 const props = defineProps({
   videos: {
@@ -62,30 +63,8 @@ const currentVideoId = ref("");
 const videoRefs = ref([]);
 const emptyStateRef = ref(null);
 
-onMounted(() => {
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  videoRefs.value.forEach((el) => {
-    if (el) observer.observe(el);
-  });
-
-  if (emptyStateRef.value) {
-    observer.observe(emptyStateRef.value);
-  }
-});
+useScrollReveal(videoRefs);
+useScrollReveal(emptyStateRef);
 
 const openVideo = (videoId) => {
   currentVideoId.value = videoId;

@@ -5,7 +5,6 @@ import HeroSection from "@/components/landing/HeroSection.vue";
 import BenefitsSection from "@/components/landing/BenefitsSection.vue";
 import ProcessSection from "@/components/landing/ProcessSection.vue";
 import MentorsSection from "@/components/landing/MentorsSection.vue";
-import TestimonialsSection from "@/components/landing/TestimonialsCarousel.vue";
 import FAQSection from "@/components/landing/FAQSection.vue";
 import VideosSection from "@/components/landing/VideosSection.vue";
 import FooterSection from "@/components/landing/FooterSection.vue";
@@ -59,13 +58,26 @@ const steps = [
 // 3. Or use external URLs: image: 'https://example.com/photo.jpg'
 // 4. Leave empty for initials placeholder: image: ''
 
+import { getImage } from "astro:assets";
+import adrianImg from "@/assets/mentors/andrian_zamudio.png";
+import maribelImg from "@/assets/mentors/maribel_bartolo.png";
+import nicoleImg from "@/assets/mentors/nicole_quispe.png";
+import maribelReviewImg from "@/assets/mentors/review_maribel.png";
+import nicoleReviewImg from "@/assets/mentors/review_nicole.png";
+
+const adrianOptimized = await getImage({ src: adrianImg, format: 'webp', width: 800 });
+const maribelOptimized = await getImage({ src: maribelImg, format: 'webp', width: 800 });
+const nicoleOptimized = await getImage({ src: nicoleImg, format: 'webp', width: 800 });
+const maribelReviewOptimized = await getImage({ src: maribelReviewImg, format: 'webp', width: 800 });
+const nicoleReviewOptimized = await getImage({ src: nicoleReviewImg, format: 'webp', width: 800 });
+
 const mentors = [
   {
     name: "Adrian Zamudio",
     topic: "Marketing",
     availability: "Disponible",
     rating: 5,
-    image: "mentors/andrian_zamudio.png",
+    image: adrianOptimized.src,
     bio: "Especialista en marketing digital con más de 5 años de experiencia ayudando a empresas a crecer su presencia online y optimizar sus estrategias de contenido.",
     description: "Apasionado por el marketing y la administración, disfruto transformar los datos en estrategias con propósito. Tengo experiencia en investigación de mercado, gestión de influencers y creación de contenido para redes sociales. También participé en la elaboración de un libro, lo que reforzó mi disciplina y enfoque en proyectos con valor real.",
     helpText: `<ul>
@@ -79,7 +91,7 @@ const mentors = [
     topic: "Recursos Humanos",
     availability: "Disponible",
     rating: 5,
-    image: "mentors/maribel_bartolo.png",
+    image: maribelOptimized.src,
     bio: "Experta en gestión de talento y desarrollo organizacional, enfocada en crear culturas de trabajo positivas y procesos de selección efectivos.",
     description: "Apasionada por conectar con las personas, escuchar historias y acompañar procesos de crecimiento. Mi vocación está en lo humano: el talento, la cultura organizacional y la inclusión",
     helpText: `<p>Puedo ofrecerte mentoría personalizada sobre temas como:</p>
@@ -90,14 +102,14 @@ const mentors = [
 <li>Aprende a planificar tu desarrollo profesional y aprovechar oportunidades desde la universidad.</li>
 <li>Descubre cómo el voluntariado, las becas y tus primeras experiencias pueden abrirte camino en Recursos Humanos</li>
 </ul>`,
-    reviewsImage: "mentors/review_maribel.png"
+    reviewsImage: maribelReviewOptimized.src
   },
   {
     name: "Nicole Quispe",
     topic: "Tecnología",
     availability: "Disponible",
     rating: 5,
-    image: "mentors/nicole_quispe.png",
+    image: nicoleOptimized.src,
     bio: "Desarrolladora full-stack y consultora en tecnología, especializada en ayudar a profesionales a transicionar al mundo tech y mejorar sus habilidades técnicas.",
     description: "Me apasionan la tecnología y los datos. Disfruto transformar información en decisiones inteligentes.",
     helpText: `<p>Te ayudo a crear dashboards en Power BI que impacten visualmente y a automatizar tus procesos con Power Query y Power Automate, para que tomes decisiones más rápido. Te cuento algunos de mis proyectos 👇</p>
@@ -111,7 +123,7 @@ const mentors = [
 <li>Un proyecto clasifica automáticamente a los clientes frecuentes según sus puntos acumulados, mejorando la segmentación y fidelización.</li>
 <li>Herramientas: Google Sheets · Looker Studio</li>
 </ul>`,
-    reviewsImage: "mentors/review_nicole.png"
+    reviewsImage: nicoleReviewOptimized.src
   },
 ];
 

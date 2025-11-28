@@ -28,13 +28,14 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useScrollReveal } from "@/composables/useScrollReveal";
 
 defineProps({
   faqs: {
@@ -46,28 +47,5 @@ defineProps({
 
 const accordionItems = ref([]);
 
-onMounted(() => {
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  accordionItems.value.forEach((item) => {
-    // Handle both DOM elements and Vue components
-    const el = item?.$el || item;
-    if (el instanceof Element) {
-      observer.observe(el);
-    }
-  });
-});
+useScrollReveal(accordionItems);
 </script>

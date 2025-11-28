@@ -1,7 +1,7 @@
 <template>
   <Dialog :open="isOpen" @update:open="handleOpenChange">
     <DialogContent
-      class="sm:max-w-[700px] max-h-[90vh] md:max-w-[60%] p-0 gap-0 overflow-hidden bg-white border-none shadow-2xl"
+      class="w-full h-full sm:h-auto sm:max-w-[700px] sm:max-h-[90vh] md:max-w-[60%] p-0 gap-0 overflow-hidden bg-white border-none shadow-2xl flex flex-col"
     >
       <!-- Header Redesign -->
       <div class="relative overflow-hidden bg-gradient-hero p-8 md:p-10">
@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="p-0 overflow-y-auto max-h-[70vh]">
+      <div class="p-0 overflow-y-auto flex-1 sm:max-h-[70vh]">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
           <!-- Left Column: Bio & Help -->
           <div
@@ -103,7 +103,8 @@
                   <img
                     :src="reviewsImageUrl"
                     alt="Reseñas de LinkedIn"
-                    class="w-full h-auto object-contain"
+                    loading="lazy"
+                    class="w-full h-full object-contain"
                   />
                 </div>
               </div>
@@ -175,8 +176,8 @@ const handleOpenChange = (open) => {
 const reviewsImageUrl = computed(() => {
   if (!props.mentorReviewsImage) return "";
   if (
-    props.mentorReviewsImage.startsWith("http://") ||
-    props.mentorReviewsImage.startsWith("https://")
+    props.mentorReviewsImage.startsWith("/") ||
+    props.mentorReviewsImage.startsWith("http")
   ) {
     return props.mentorReviewsImage;
   }

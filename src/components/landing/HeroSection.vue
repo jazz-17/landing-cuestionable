@@ -1,14 +1,11 @@
 <template>
-  <section
-    class="relative py-20 pt-15 "
-  >
+  <section class="relative py-20 pt-15">
     <div class="container relative">
       <div class="max-w-[800px] mx-auto text-center">
         <div
-          class="inline-flex items-center gap-2 px-4 py-2  px-3 py-1 text-xs  bg-white tracking-wider border rounded-full font-medium text-[var(--primary-dark)] mb-8 animate-fade-in"
+          class="inline-flex items-center gap-2 px-3 py-1 text-xs bg-white tracking-wider border rounded-full font-medium text-[var(--primary-dark)] mb-8 animate-fade-in"
         >
-          <span 
-          class="relative flex h-2 w-2">
+          <span class="relative flex h-2 w-2">
             <span
               class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-75"
             ></span>

@@ -20,19 +20,15 @@ Place mentor photos in this folder.
 Reference these images in `src/pages/index.astro`:
 
 ```javascript
+import adrianImg from "@/assets/mentors/adrian-zamudio.jpg";
+
 const mentors = [
   {
-    name: 'Adrian Zamudio',
-    topic: 'Marketing',
-    availability: 'Disponible',
+    name: "Adrian Zamudio",
+    topic: "Marketing",
+    availability: "Disponible",
     rating: 5,
-    image: 'mentors/adrian-zamudio.jpg' // ← Add filename here
-  }
+    image: adrianImg.src, // ← Use imported image src
+  },
 ];
-```
-
-Or use external URLs:
-
-```javascript
-image: 'https://example.com/photo.jpg'
 ```

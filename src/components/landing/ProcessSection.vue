@@ -29,8 +29,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import StepCard from "@/components/StepCard.vue";
+import { useScrollReveal } from "@/composables/useScrollReveal";
 
 defineProps({
   steps: {
@@ -42,26 +43,6 @@ defineProps({
 const headerRef = ref(null);
 const stepRefs = ref([]);
 
-onMounted(() => {
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  if (headerRef.value) observer.observe(headerRef.value);
-
-  stepRefs.value.forEach((el) => {
-    if (el) observer.observe(el);
-  });
-});
+useScrollReveal(headerRef);
+useScrollReveal(stepRefs);
 </script>
