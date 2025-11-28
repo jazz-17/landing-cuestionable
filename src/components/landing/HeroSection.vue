@@ -67,10 +67,6 @@
       </div>
     </div>
 
-    <!-- Decorative elements -->
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--primary)] opacity-[0.03] rounded-full blur-3xl pointer-events-none -z-1"
-    ></div>
   </section>
 </template>
 

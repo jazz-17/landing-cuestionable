@@ -14,9 +14,17 @@
         ></div>
 
         <div
-          class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+          class="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6"
         >
-          <div class="space-y-2">
+          <div v-if="mentorImage" class="shrink-0">
+            <img
+              :src="mentorImageUrl"
+              :alt="mentorName"
+              class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-white/50 shadow-lg"
+            />
+          </div>
+
+          <div class="space-y-2 flex-1">
             <div class="flex items-center gap-3 mb-1">
               <div
                 class="inline-flex items-center px-3 py-1 bg-white/60 backdrop-blur-sm text-primary-dark text-xs font-bold uppercase tracking-wider rounded-full border border-white/50 shadow-sm"
@@ -86,9 +94,9 @@
           <!-- Right Column: Reviews -->
           <div
             v-if="mentorReviewsImage"
-            class="md:col-span-6 bg-slate-50/50 p-6 md:p-8"
+            class="lg:col-span-6 bg-slate-50/50 p-6 md:p-8 border-t lg:border-t-0 lg:border-l border-slate-100"
           >
-            <div class="space-y-4 h-full flex flex-col">
+            <div class="space-y-4">
               <div class="flex items-center gap-2 text-primary mb-1">
                 <MessageSquareQuote class="w-5 h-5" />
                 <h4 class="text-lg font-bold text-slate-900">
@@ -96,15 +104,15 @@
                 </h4>
               </div>
 
-              <div class="relative group flex-1">
+              <div class="relative group">
                 <div
-                  class="relative bg-white rounded-xl overflow-hidden border h-full"
+                  class="relative bg-white rounded-xl overflow-hidden border shadow-sm"
                 >
                   <img
                     :src="reviewsImageUrl"
                     alt="Reseñas de LinkedIn"
                     loading="lazy"
-                    class="w-full h-full object-contain"
+                    class="w-full h-auto block"
                   />
                 </div>
               </div>
@@ -182,5 +190,16 @@ const reviewsImageUrl = computed(() => {
     return props.mentorReviewsImage;
   }
   return `${import.meta.env.BASE_URL}${props.mentorReviewsImage}`;
+});
+
+const mentorImageUrl = computed(() => {
+  if (!props.mentorImage) return "";
+  if (
+    props.mentorImage.startsWith("/") ||
+    props.mentorImage.startsWith("http")
+  ) {
+    return props.mentorImage;
+  }
+  return `${import.meta.env.BASE_URL}${props.mentorImage}`;
 });
 </script>
