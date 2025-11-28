@@ -11,7 +11,7 @@ export default defineConfig({
       enabled: true
     },
 
-    imageService: "passthrough"
+    imageService: "compile"
   }),
   vite: {
     plugins: [tailwindcss()],

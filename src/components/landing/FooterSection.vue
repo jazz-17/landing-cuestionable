@@ -56,7 +56,7 @@
             <ul class="list-none flex flex-col gap-2.5">
               <li>
                 <a
-                  href="mailto:contacto@cuestionable.pe"
+                  href="mailto:cuestionable.info@gmail.com"
                   class="text-white no-underline opacity-80 hover:opacity-100 transition-opacity duration-200 text-sm"
                   >cuestionable.info@gmail.com</a
                 >
