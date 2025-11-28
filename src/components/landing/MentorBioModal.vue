@@ -1,58 +1,135 @@
 <template>
   <Dialog :open="isOpen" @update:open="handleOpenChange">
-    <DialogContent class="sm:max-w-[500px] p-0 gap-0 overflow-hidden bg-white">
-      <DialogHeader
-        class="p-6 md:p-8 pb-5 md:pb-6 text-center border-b bg-gradient-hero"
-      >
+    <DialogContent
+      class="sm:max-w-[700px] max-h-[90vh] md:max-w-[60%] p-0 gap-0 overflow-hidden bg-white border-none shadow-2xl"
+    >
+      <!-- Header Redesign -->
+      <div class="relative overflow-hidden bg-gradient-hero p-8 md:p-10">
+        <!-- Decorative background elements -->
         <div
-          v-if="mentorImage"
-          class="w-[100px] h-[100px] rounded-full mx-auto mb-5 overflow-hidden border-4 border-primary/10"
-        >
-          <img
-            :src="imageUrl"
-            :alt="mentorName"
-            class="w-full h-full object-cover"
-          />
-        </div>
+          class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/20 rounded-full blur-3xl"
+        ></div>
         <div
-          v-else
-          class="w-[100px] h-[100px] rounded-full mx-auto mb-5 flex items-center justify-center text-4xl font-extrabold text-primary-foreground font-manrope border-4 border-primary/10"
+          class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"
+        ></div>
+
+        <div
+          class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
         >
-          {{ initials }}
-        </div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 mb-1">
+              <div
+                class="inline-flex items-center px-3 py-1 bg-white/60 backdrop-blur-sm text-primary-dark text-xs font-bold uppercase tracking-wider rounded-full border border-white/50 shadow-sm"
+              >
+                {{ mentorTopic }}
+              </div>
+              <div
+                class="flex items-center gap-1 bg-white/60 backdrop-blur-sm px-2 py-1 rounded-full border border-white/50 shadow-sm"
+              >
+                <Star class="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                <span class="text-xs font-bold text-slate-700"
+                  >{{ mentorRating }}.0</span
+                >
+              </div>
+            </div>
 
-        <div class="space-y-3">
-          <DialogTitle
-            class="text-2xl md:text-[28px] font-bold text-foreground font-manrope tracking-tight text-center"
-          >
-            {{ mentorName }}
-          </DialogTitle>
-
-          <div class="flex justify-center">
-            <div
-              class="inline-flex items-center px-4 py-1.5 bg-primary/5 text-primary text-sm font-semibold rounded-lg border border-primary/10"
+            <DialogTitle
+              class="text-3xl md:text-4xl font-extrabold text-slate-900 font-manrope tracking-tight"
             >
-              {{ mentorTopic }}
+              {{ mentorName }}
+            </DialogTitle>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-0 overflow-y-auto max-h-[70vh]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <!-- Left Column: Bio & Help -->
+          <div
+            :class="[mentorReviewsImage ? 'lg:col-span-6 ' : 'lg:col-span-12']"
+            class="p-6 md:p-8 space-y-8 border-b lg:border-b-0 lg:border-r border-slate-100"
+          >
+            <!-- Section 1: Description -->
+            <div v-if="mentorDescription" class="space-y-3">
+              <div class="flex items-center gap-2 text-primary">
+                <User class="w-5 h-5" />
+                <h4 class="text-lg font-bold text-slate-900">Sobre mí</h4>
+              </div>
+              <DialogDescription
+                class="text-slate-600 leading-relaxed text-[15px]"
+              >
+                {{ mentorDescription }}
+              </DialogDescription>
+            </div>
+            <DialogDescription v-else class="sr-only">
+              Detalles del mentor
+            </DialogDescription>
+
+            <!-- Section 2: How I can help -->
+            <div v-if="mentorHelpText" class="space-y-4">
+              <div class="flex items-center gap-2 text-primary">
+                <Sparkles class="w-5 h-5" />
+                <h4 class="text-lg font-bold text-slate-900">
+                  ¿En qué puedo ayudarte?
+                </h4>
+              </div>
+
+              <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+                <div
+                  class="prose prose-sm prose-slate max-w-none [&_ul]:space-y-2 [&_ul]:list-none [&_ul]:pl-0 [&_li]:relative [&_li]:pl-6 [&_li]:text-slate-600 [&_li:before]:content-[''] [&_li:before]:absolute [&_li:before]:left-0 [&_li:before]:top-2 [&_li:before]:w-1.5 [&_li:before]:h-1.5 [&_li:before]:bg-primary [&_li:before]:rounded-full [&_strong]:text-slate-800 [&_strong]:font-bold"
+                  v-html="mentorHelpText"
+                ></div>
+              </div>
             </div>
           </div>
 
+          <!-- Right Column: Reviews -->
           <div
-            class="flex items-center justify-center gap-2 text-muted-foreground text-sm"
+            v-if="mentorReviewsImage"
+            class="md:col-span-6 bg-slate-50/50 p-6 md:p-8"
           >
-            <span class="text-amber-400 text-base tracking-[2px]">{{
-              starsDisplay
-            }}</span>
-            <span>{{ mentorRating }}.0</span>
+            <div class="space-y-4 h-full flex flex-col">
+              <div class="flex items-center gap-2 text-primary mb-1">
+                <MessageSquareQuote class="w-5 h-5" />
+                <h4 class="text-lg font-bold text-slate-900">
+                  Lo que dicen de mí
+                </h4>
+              </div>
+
+              <div class="relative group flex-1">
+                <div
+                  class="relative bg-white rounded-xl overflow-hidden border h-full"
+                >
+                  <img
+                    :src="reviewsImageUrl"
+                    alt="Reseñas de LinkedIn"
+                    class="w-full h-auto object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </DialogHeader>
+      </div>
 
-      <div class="p-6 md:p-8">
-        <DialogDescription
-          class="text-base leading-relaxed text-muted-foreground"
+      <!-- Footer Actions -->
+      <div
+        class="p-4 md:p-6 border-t border-slate-100 bg-white flex justify-end gap-3"
+      >
+        <button
+          @click="handleOpenChange(false)"
+          class="px-5 py-2.5 rounded-xl text-slate-600 font-semibold hover:bg-slate-100 transition-colors text-sm cursor-pointer"
         >
-          {{ mentorBio }}
-        </DialogDescription>
+          Cerrar
+        </button>
+        <!-- <a 
+          href="https://forms.gle/JdC6fM1Fazotx6b6A" 
+          target="_blank"
+          class="px-6 py-2.5 rounded-xl bg-primary text-white font-semibold shadow-lg shadow-primary/25 hover:bg-primary-dark hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-200 text-sm flex items-center gap-2"
+        >
+          <span>Agendar mentoría</span>
+          <ArrowRight class="w-4 h-4" />
+        </a> -->
       </div>
     </DialogContent>
   </Dialog>
@@ -63,16 +140,25 @@ import { computed } from "vue";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  User,
+  Sparkles,
+  MessageSquareQuote,
+  Star,
+  ArrowRight,
+} from "lucide-vue-next";
 
 const props = defineProps({
   isOpen: Boolean,
   mentorName: String,
   mentorTopic: String,
   mentorBio: String,
+  mentorDescription: String,
+  mentorHelpText: String,
+  mentorReviewsImage: String,
   mentorImage: String,
   mentorRating: Number,
 });
@@ -86,31 +172,14 @@ const handleOpenChange = (open) => {
   }
 };
 
-const imageUrl = computed(() => {
-  if (!props.mentorImage) return "";
+const reviewsImageUrl = computed(() => {
+  if (!props.mentorReviewsImage) return "";
   if (
-    props.mentorImage.startsWith("http://") ||
-    props.mentorImage.startsWith("https://")
+    props.mentorReviewsImage.startsWith("http://") ||
+    props.mentorReviewsImage.startsWith("https://")
   ) {
-    return props.mentorImage;
+    return props.mentorReviewsImage;
   }
-  return `${import.meta.env.BASE_URL}${props.mentorImage}`;
-});
-
-const initials = computed(() => {
-  if (!props.mentorName) return "";
-  return props.mentorName
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
-});
-
-const starsDisplay = computed(() => {
-  return (
-    "★".repeat(props.mentorRating || 0) +
-    "☆".repeat(5 - (props.mentorRating || 0))
-  );
+  return `${import.meta.env.BASE_URL}${props.mentorReviewsImage}`;
 });
 </script>

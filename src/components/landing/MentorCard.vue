@@ -25,8 +25,8 @@
       ></div>
     </div>
 
-    <div class="p-6 flex flex-col gap-5 flex-1">
-      <div class="flex flex-col gap-2">
+    <div class="p-6 flex flex-col gap-8 flex-1 justify-between">
+      <div class="flex gap-2 justify-between items-start">
         <div class="flex items-center justify-between gap-3">
           <h3
             class="text-xl font-bold text-[var(--text-primary)] m-0 tracking-tight flex-1"
@@ -35,15 +35,12 @@
           </h3>
         </div>
         <div
-          class="inline-flex items-center px-3 py-1 bg-[rgba(158,191,166,0.1)] text-[var(--primary-dark)] text-xs font-semibold rounded-full self-start"
+          class="flex justify-center items-center  px-3 py-1 bg-brand-bg-secondary text-[var(--primary-dark)] text-sm font-semibold rounded-full text-nowrap"
         >
           {{ topic }}
         </div>
       </div>
 
-      <div
-        class="grid grid-cols-2 gap-4 pt-4 border-t border-[var(--border)] mt-auto"
-      ></div>
 
       <button
         class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-xl text-[15px] font-semibold cursor-pointer transition-all duration-200 hover:bg-[var(--primary-dark)] hover:shadow-md active:translate-y-[1px]"
@@ -83,6 +80,18 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  description: {
+    type: String,
+    default: "",
+  },
+  helpText: {
+    type: String,
+    default: "",
+  },
+  reviewsImage: {
+    type: String,
+    default: "",
+  },
   buttonText: {
     type: String,
     default: "Conocer más",
@@ -96,6 +105,9 @@ const showBioModal = () => {
     name: props.name,
     topic: props.topic,
     bio: props.bio,
+    description: props.description,
+    helpText: props.helpText,
+    reviewsImage: props.reviewsImage,
     image: props.image,
     rating: props.rating,
   });

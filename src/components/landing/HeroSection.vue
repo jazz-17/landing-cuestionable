@@ -1,13 +1,14 @@
 <template>
   <section
-    class="relative py-20 pt-[140px] md:py-24 md:pt-32 overflow-hidden bg-gradient-hero"
+    class="relative py-20 pt-15 "
   >
     <div class="container relative">
       <div class="max-w-[800px] mx-auto text-center">
         <div
-          class="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(158,191,166,0.1)] border border-[rgba(158,191,166,0.2)] rounded-full text-sm font-medium text-[var(--primary-dark)] mb-8 animate-fade-in"
+          class="inline-flex items-center gap-2 px-4 py-2  px-3 py-1 text-xs  bg-white tracking-wider border rounded-full font-medium text-[var(--primary-dark)] mb-8 animate-fade-in"
         >
-          <span class="relative flex h-2 w-2">
+          <span 
+          class="relative flex h-2 w-2">
             <span
               class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-75"
             ></span>
@@ -15,7 +16,7 @@
               class="relative inline-flex rounded-full h-2 w-2 bg-[var(--primary)]"
             ></span>
           </span>
-          <span>Mentorías personalizadas 1 a 1</span>
+          <span class="">Mentorías personalizadas 1 a 1</span>
         </div>
 
         <h1
@@ -61,7 +62,7 @@
           </a>
           <a
             href="#como-funciona"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[var(--text-primary)] no-underline rounded-full font-semibold text-lg border border-[var(--border)] transition-all duration-300 hover:bg-[var(--bg-secondary)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[var(--text-primary)] no-underline rounded-full font-semibold text-lg border border-[var(--border)] transition-all duration-300 hover:border-[var(--primary)] hover:text-[var(--primary)]"
           >
             Cómo funciona
           </a>

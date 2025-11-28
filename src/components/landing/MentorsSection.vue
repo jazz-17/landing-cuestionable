@@ -5,8 +5,9 @@
     <div
       v-for="(mentor, index) in mentors"
       :key="index"
-      class="reveal-on-scroll"
+      class="vue-reveal"
       :style="{ transitionDelay: `${index * 0.1}s` }"
+      ref="mentorItems"
     >
       <MentorCard
         :name="mentor.name"
@@ -15,6 +16,9 @@
         :rating="mentor.rating"
         :image="mentor.image"
         :bio="mentor.bio"
+        :description="mentor.description"
+        :help-text="mentor.helpText"
+        :reviews-image="mentor.reviewsImage"
         button-text="Conocer más"
         @show-bio="openBioModal"
       />
@@ -28,6 +32,9 @@
     :mentor-name="selectedBio.name"
     :mentor-topic="selectedBio.topic"
     :mentor-bio="selectedBio.bio"
+    :mentor-description="selectedBio.description"
+    :mentor-help-text="selectedBio.helpText"
+    :mentor-reviews-image="selectedBio.reviewsImage"
     :mentor-image="selectedBio.image"
     :mentor-rating="selectedBio.rating"
     @close="closeBioModal"
@@ -35,7 +42,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import MentorCard from "./MentorCard.vue";
 import MentorBioModal from "./MentorBioModal.vue";
 
@@ -46,12 +53,38 @@ defineProps({
   },
 });
 
+const mentorItems = ref([]);
+
+onMounted(() => {
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  mentorItems.value.forEach((el) => {
+    if (el) observer.observe(el);
+  });
+});
+
 const isBioModalOpen = ref(false);
 
 const selectedBio = ref({
   name: "",
   topic: "",
   bio: "",
+  description: "",
+  helpText: "",
+  reviewsImage: "",
   image: "",
   rating: 0,
 });

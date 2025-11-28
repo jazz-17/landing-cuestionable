@@ -1,12 +1,12 @@
 <template>
   <nav
     :class="[
-      'fixed top-0 left-0 right-0 z-10 transition-transform duration-[400ms] transition-smooth',
+      'sticky top-4 w-full z-10 transition-transform duration-[400ms]  transition-smooth bg-transparent',
       isVisible ? 'translate-y-0' : '-translate-y-full',
     ]"
   >
     <div
-      class="max-w-7xl mx-4 md:mx-auto mt-4 md:mt-4 px-4 md:px-6 py-3 bg-white/80 backdrop-blur-xl backdrop-saturate-[180%] border border-[var(--border)] rounded-2xl shadow-[var(--shadow-lg)] flex items-center justify-between"
+      class="max-w-7xl mx-4 md:mx-auto mt-4 md:mt-4 px-4 md:px-6 py-3 bg-white backdrop-blur-xl backdrop-saturate-[180%] border border-[var(--border)] rounded-2xl shadow-[var(--shadow-lg)] flex items-center justify-between"
     >
       <div
         class="flex items-center gap-2 font-bold text-lg text-[var(--text-primary)] font-[Manrope,sans-serif]"

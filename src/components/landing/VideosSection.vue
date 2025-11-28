@@ -7,8 +7,9 @@
       <div
         v-for="(videoId, index) in videos"
         :key="videoId"
-        class="bg-white rounded-xl overflow-hidden border border-[var(--border)] transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg hover:-translate-y-1 reveal-on-scroll"
+        class="bg-white rounded-xl overflow-hidden border border-[var(--border)] transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg hover:-translate-y-1 vue-reveal"
         :style="{ transitionDelay: `${index * 0.1}s` }"
+        ref="videoRefs"
       >
         <VideoThumbnail :videoId="videoId" @click="openVideo(videoId)" />
       </div>
@@ -16,7 +17,8 @@
 
     <div
       v-else
-      class="text-center py-16 px-8 bg-white rounded-2xl border border-dashed border-[var(--border)] reveal-on-scroll"
+      class="text-center py-16 px-8 bg-white rounded-2xl border border-dashed border-[var(--border)] vue-reveal"
+      ref="emptyStateRef"
     >
       <p class="text-[var(--text-secondary)] text-lg mb-6">
         Próximamente encontrarás aquí nuestros últimos videos
@@ -40,7 +42,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import VideoThumbnail from "./VideoThumbnail.vue";
 import VideoModal from "./VideoModal.vue";
 
@@ -57,6 +59,33 @@ const props = defineProps({
 
 const isModalOpen = ref(false);
 const currentVideoId = ref("");
+const videoRefs = ref([]);
+const emptyStateRef = ref(null);
+
+onMounted(() => {
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  videoRefs.value.forEach((el) => {
+    if (el) observer.observe(el);
+  });
+
+  if (emptyStateRef.value) {
+    observer.observe(emptyStateRef.value);
+  }
+});
 
 const openVideo = (videoId) => {
   currentVideoId.value = videoId;
