@@ -15,19 +15,13 @@
         :rating="mentor.rating"
         :image="mentor.image"
         :bio="mentor.bio"
-        button-text="Solicitar mentoría"
-        @book="openBookingModal"
+        button-text="Conocer más"
         @show-bio="openBioModal"
       />
     </div>
   </div>
 
-  <BookingModal
-    :is-open="isBookingModalOpen"
-    :mentor-name="selectedMentor.name"
-    :mentor-topic="selectedMentor.topic"
-    @close="closeBookingModal"
-  />
+
 
   <MentorBioModal
     :is-open="isBioModalOpen"
@@ -43,7 +37,6 @@
 <script setup>
 import { ref } from "vue";
 import MentorCard from "./MentorCard.vue";
-import BookingModal from "./BookingModal.vue";
 import MentorBioModal from "./MentorBioModal.vue";
 
 defineProps({
@@ -53,13 +46,7 @@ defineProps({
   },
 });
 
-const isBookingModalOpen = ref(false);
 const isBioModalOpen = ref(false);
-
-const selectedMentor = ref({
-  name: "",
-  topic: "",
-});
 
 const selectedBio = ref({
   name: "",
@@ -68,15 +55,6 @@ const selectedBio = ref({
   image: "",
   rating: 0,
 });
-
-const openBookingModal = (mentorData) => {
-  selectedMentor.value = mentorData;
-  isBookingModalOpen.value = true;
-};
-
-const closeBookingModal = () => {
-  isBookingModalOpen.value = false;
-};
 
 const openBioModal = (bioData) => {
   selectedBio.value = bioData;

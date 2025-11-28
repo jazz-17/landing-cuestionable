@@ -65,18 +65,22 @@
   --radius: 0.625rem;
 
   /* Brand colors */
-  --primary: oklch(0.21 0.034 264.665); /* Sage Green as primary */
-  --primary-dark: #8dae95;
+  --primary: #be7bed;
+  --primary-dark: #9d55cb;
   --accent: oklch(0.967 0.003 264.542); /* Blue as accent */
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
   --text-tertiary: #888888;
   --border: oklch(0.928 0.006 264.531);
   --bg: #ffffff;
-  --bg-secondary: #f9f9f9;
+  --bg-secondary: #edf4fc;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(180deg, #ffffff 0%, #f4f7f5 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    rgba(190, 123, 237, 0.15) 0%,
+    rgba(74, 144, 226, 0.15) 100%
+  );
   --gradient-subtle: linear-gradient(
     135deg,
     rgba(158, 191, 166, 0.1) 0%,

@@ -13,16 +13,14 @@
             />
             <h3 class="text-lg font-bold m-0">CuestionaBle Mentorship</h3>
           </div>
-          <p class="text-[15px] leading-relaxed opacity-70 max-w-[400px]">
-            Hecho con intención para que cuestiones, aprendas y crezcas.
+          <p class="leading-relaxed opacity-70 max-w-[400px]">
+            ¿Y si cuestionar todo fuera solo el comienzo?
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div>
-            <h4
-              class="text-[13px] font-semibold mb-3 uppercase tracking-wide opacity-50"
-            >
+            <h4 class="font-semibold mb-3 uppercase tracking-wide opacity-50">
               Navegación
             </h4>
             <ul class="list-none flex flex-col gap-2.5">
@@ -51,9 +49,7 @@
           </div>
 
           <div>
-            <h4
-              class="text-[13px] font-semibold mb-3 uppercase tracking-wide opacity-50"
-            >
+            <h4 class="font-semibold mb-3 uppercase tracking-wide opacity-50">
               Contacto
             </h4>
             <ul class="list-none flex flex-col gap-2.5">
@@ -61,7 +57,7 @@
                 <a
                   href="mailto:contacto@cuestionable.pe"
                   class="text-white no-underline opacity-80 hover:opacity-100 transition-opacity duration-200 text-sm"
-                  >contacto@cuestionable.pe</a
+                  >cuestionable.info@gmail.com</a
                 >
               </li>
             </ul>
