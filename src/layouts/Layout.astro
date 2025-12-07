@@ -6,6 +6,24 @@
 		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}logo.png`} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="CuestionaBle Mentorship - Conecta con mentores que te acompañan a potenciar tu perfil profesional y tus proyectos con herramientas de Business Intelligence." />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Canonical -->
+		<link rel="canonical" href="https://cuestionable.pe/" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://cuestionable.pe/" />
+		<meta property="og:title" content="CuestionaBle Mentorship - Mentorías Personalizadas" />
+		<meta property="og:description" content="Conecta con mentores que te acompañan a potenciar tu perfil profesional y tus proyectos con herramientas de Business Intelligence." />
+		<meta property="og:image" content="https://cuestionable.pe/og-image.png" />
+		<meta property="og:locale" content="es_PE" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="CuestionaBle Mentorship - Mentorías Personalizadas" />
+		<meta name="twitter:description" content="Conecta con mentores que te acompañan a potenciar tu perfil profesional y tus proyectos con herramientas de Business Intelligence." />
+		<meta name="twitter:image" content="https://cuestionable.pe/og-image.png" />
 
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +31,18 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 		<title>CuestionaBle Mentorship - Mentorías Personalizadas</title>
+
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "CuestionaBle Mentorship",
+			"url": "https://cuestionable.pe",
+			"logo": "https://cuestionable.pe/logo.png",
+			"description": "Conecta con mentores que te acompañan a potenciar tu perfil profesional y tus proyectos con herramientas de Business Intelligence."
+		}
+		</script>
 	</head>
 	<body class="min-h-screen bg-gradient-hero">
 		<slot />
