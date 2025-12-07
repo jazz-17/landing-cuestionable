@@ -2,34 +2,24 @@
   <section class="relative py-20 pt-15">
     <div class="container relative">
       <div class="max-w-[800px] mx-auto text-center">
-        <div
-          class="inline-flex items-center gap-2 px-3 py-1 text-xs bg-white tracking-wider border rounded-full font-medium text-[var(--primary-dark)] mb-8 animate-fade-in"
-        >
-          <span class="relative flex h-2 w-2">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-75"
-            ></span>
-            <span
-              class="relative inline-flex rounded-full h-2 w-2 bg-[var(--primary)]"
-            ></span>
-          </span>
-          <span class="">Mentorías personalizadas 1 a 1</span>
-        </div>
+
 
         <h1
           class="text-5xl md:text-[64px] font-bold text-[var(--text-primary)] mb-6 leading-[1.1] tracking-tight animate-fade-in"
           style="animation-delay: 0.1s"
         >
-          Potencia tu carrera con <br />
-          <span class="text-[var(--primary)]">mentores expertos</span>
+          Cuando no sabes por dónde empezar, <br />
+          <span class="text-[var(--primary)]"
+            >pregúntale a alguien que ya lo hizo.</span
+          >
         </h1>
 
         <p
           class="text-lg md:text-xl leading-relaxed text-[var(--text-secondary)] mb-10 max-w-2xl mx-auto animate-fade-in"
           style="animation-delay: 0.2s"
         >
-          Conecta con profesionales en Business Intelligence y desarrollo
-          profesional. Sesiones diseñadas para alcanzar tus objetivos.
+          Conecta con mentores reales y resuelve tus dudas con acompañamiento
+          personalizado.
         </p>
 
         <div
@@ -66,7 +56,6 @@
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
