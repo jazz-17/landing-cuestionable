@@ -16,7 +16,12 @@
           <div v-if="mentorImage" class="shrink-0">
             <img
               :src="mentorImageUrl"
-              :alt="mentorName"
+              :srcset="mentorImageSrcSet || undefined"
+              :sizes="mentorImageSrcSet ? mentorImageSizes : undefined"
+              :width="mentorImageWidth ?? undefined"
+              :height="mentorImageHeight ?? undefined"
+              :alt="`Foto de ${mentorName}`"
+              decoding="async"
               class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover ring-2 ring-white/60 shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
             />
           </div>
@@ -125,22 +130,28 @@
                 Lo que dicen de mí
               </h4>
 
-              <!-- Image review -->
+              <!-- Image reviews -->
               <div
-                v-if="mentorReviewsImage"
+                v-for="(review, idx) in reviewsImageUrls"
+                :key="idx"
                 class="bg-white rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
               >
                 <img
-                  :src="reviewsImageUrl"
-                  alt="Reseñas de LinkedIn"
+                  :src="review.src"
+                  :srcset="review.srcSet || undefined"
+                  :sizes="review.srcSet ? reviewImageSizes : undefined"
+                  :width="review.width ?? undefined"
+                  :height="review.height ?? undefined"
+                  :alt="review.alt || `Reseña de ${mentorName}`"
                   loading="lazy"
+                  decoding="async"
                   class="w-full h-auto block"
                 />
               </div>
 
               <!-- Text review -->
               <div
-                v-else-if="mentorReviewText"
+                v-if="mentorReviewText"
                 class="bg-white rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
               >
                 <div class="flex gap-3">
@@ -215,13 +226,28 @@ const props = defineProps({
   mentorBio: String,
   mentorDescription: String,
   mentorHelpText: Object,
-  mentorReviewsImage: String,
+  mentorReviewsImages: {
+    type: Array,
+    default: () => [],
+  },
   mentorReviewText: Object,
   mentorImage: String,
+  mentorImageSrcSet: {
+    type: String,
+    default: "",
+  },
+  mentorImageWidth: {
+    type: [Number, String],
+    default: null,
+  },
+  mentorImageHeight: {
+    type: [Number, String],
+    default: null,
+  },
   mentorRating: Number,
 });
 
-const hasReviews = computed(() => props.mentorReviewsImage || props.mentorReviewText);
+const hasReviews = computed(() => props.mentorReviewsImages?.length > 0 || props.mentorReviewText);
 
 const emit = defineEmits(["close", "update:open"]);
 
@@ -232,15 +258,23 @@ const handleOpenChange = (open) => {
   }
 };
 
-const reviewsImageUrl = computed(() => {
-  if (!props.mentorReviewsImage) return "";
-  if (
-    props.mentorReviewsImage.startsWith("/") ||
-    props.mentorReviewsImage.startsWith("http")
-  ) {
-    return props.mentorReviewsImage;
-  }
-  return `${import.meta.env.BASE_URL}${props.mentorReviewsImage}`;
+const reviewsImageUrls = computed(() => {
+  if (!props.mentorReviewsImages?.length) return [];
+  return props.mentorReviewsImages.map((img) => {
+    const rawSrc = typeof img === "string" ? img : img?.src;
+    const src =
+      rawSrc && (rawSrc.startsWith("/") || rawSrc.startsWith("http"))
+        ? rawSrc
+        : `${import.meta.env.BASE_URL}${rawSrc}`;
+
+    return {
+      src,
+      srcSet: typeof img === "string" ? "" : img?.srcSet || "",
+      width: typeof img === "string" ? null : img?.width ?? null,
+      height: typeof img === "string" ? null : img?.height ?? null,
+      alt: typeof img === "string" ? "" : img?.alt || "",
+    };
+  });
 });
 
 const mentorImageUrl = computed(() => {
@@ -253,4 +287,7 @@ const mentorImageUrl = computed(() => {
   }
   return `${import.meta.env.BASE_URL}${props.mentorImage}`;
 });
+
+const mentorImageSizes = "64px";
+const reviewImageSizes = "(min-width: 1024px) 420px, 90vw";
 </script>

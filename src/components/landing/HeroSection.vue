@@ -1,11 +1,11 @@
 <template>
-  <section class="relative py-20 pt-15">
+  <section class="relative py-14 md:py-18">
     <div class="container relative">
       <div class="max-w-[800px] mx-auto text-center">
 
 
         <h1
-          class="text-5xl md:text-[64px] font-bold text-[var(--text-primary)] mb-6 leading-[1.1] tracking-tight animate-fade-in"
+          class="text-5xl md:text-[56px] font-bold text-[var(--text-primary)] mb-5 leading-[1.1] tracking-tight animate-fade-in"
           style="animation-delay: 0.1s"
         >
           Cuando no sabes por dónde empezar, <br />
@@ -15,7 +15,7 @@
         </h1>
 
         <p
-          class="text-lg md:text-xl leading-relaxed text-[var(--text-secondary)] mb-10 max-w-2xl mx-auto animate-fade-in"
+          class="text-lg md:text-xl leading-relaxed text-[var(--text-secondary)] mb-7 max-w-2xl mx-auto animate-fade-in"
           style="animation-delay: 0.2s"
         >
           Conecta con mentores reales y resuelve tus dudas con acompañamiento

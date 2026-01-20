@@ -1,7 +1,7 @@
 <template>
   <section
     id="como-funciona"
-    class="process relative py-20 md:py-24 bg-[var(--bg-secondary)]"
+    class="process relative py-14 md:py-18 bg-[var(--bg-secondary)]"
   >
     <div class="container">
       <div class="section-header reveal-on-scroll">
@@ -9,7 +9,7 @@
         <h2 class="section-title">Cómo funciona</h2>
       </div>
 
-      <div class="max-w-[700px] mx-auto flex flex-col gap-3">
+      <div class="max-w-[700px] mx-auto flex flex-col gap-2.5">
         <div
           v-for="(step, index) in steps"
           :key="index"

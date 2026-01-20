@@ -65,13 +65,20 @@ import nicoleImg from "@/assets/mentors/nicole_quispe.png";
 import milagrosImg from "@/assets/mentors/milagros_moreno.jpg";
 import maribelReviewImg from "@/assets/mentors/review_maribel.png";
 import nicoleReviewImg from "@/assets/mentors/review_nicole.png";
+import nicoleReview2Img from "@/assets/mentors/review_nicole2.jpeg";
 
-const adrianOptimized = await getImage({ src: adrianImg, format: 'webp', width: 800 });
-const maribelOptimized = await getImage({ src: maribelImg, format: 'webp', width: 800 });
-const nicoleOptimized = await getImage({ src: nicoleImg, format: 'webp', width: 800 });
-const milagrosOptimized = await getImage({ src: milagrosImg, format: 'webp', width: 800 });
-const maribelReviewOptimized = await getImage({ src: maribelReviewImg, format: 'webp', width: 800 });
-const nicoleReviewOptimized = await getImage({ src: nicoleReviewImg, format: 'webp', width: 800 });
+const mentorImageTransform = { format: "webp", widths: [320, 480, 640, 800] };
+const reviewImageTransform = { format: "webp", widths: [480, 800, 1200] };
+
+const adrianOptimized = await getImage({ src: adrianImg, ...mentorImageTransform });
+const maribelOptimized = await getImage({ src: maribelImg, ...mentorImageTransform });
+const nicoleOptimized = await getImage({ src: nicoleImg, ...mentorImageTransform });
+const milagrosOptimized = await getImage({ src: milagrosImg, ...mentorImageTransform });
+const maribelReviewOptimized = await getImage({ src: maribelReviewImg, ...reviewImageTransform });
+const nicoleReviewOptimized = await getImage({ src: nicoleReviewImg, ...reviewImageTransform });
+const nicoleReview2Optimized = await getImage({ src: nicoleReview2Img, ...reviewImageTransform });
+
+const siteUrl = "https://cuestionable.pe";
 
 const mentors = [
   {
@@ -80,6 +87,9 @@ const mentors = [
     availability: "Disponible",
     rating: 5,
     image: adrianOptimized.src,
+    imageSrcSet: adrianOptimized.srcSet.attribute,
+    imageWidth: adrianOptimized.attributes.width,
+    imageHeight: adrianOptimized.attributes.height,
     bio: "Especialista en marketing digital con más de 5 años de experiencia ayudando a empresas a crecer su presencia online y optimizar sus estrategias de contenido.",
     description: "Apasionado por el marketing y la administración, disfruto transformar los datos en estrategias con propósito. Tengo experiencia en investigación de mercado, gestión de influencers y creación de contenido para redes sociales. También participé en la elaboración de un libro, lo que reforzó mi disciplina y enfoque en proyectos con valor real.",
     helpText: {
@@ -90,7 +100,7 @@ const mentors = [
       ],
       outro: null
     },
-    reviewsImage: null
+    reviewsImages: []
   },
   {
     name: "Maribel Bartolo",
@@ -98,6 +108,9 @@ const mentors = [
     availability: "Disponible",
     rating: 5,
     image: maribelOptimized.src,
+    imageSrcSet: maribelOptimized.srcSet.attribute,
+    imageWidth: maribelOptimized.attributes.width,
+    imageHeight: maribelOptimized.attributes.height,
     bio: "Experta en gestión de talento y desarrollo organizacional, enfocada en crear culturas de trabajo positivas y procesos de selección efectivos.",
     description: "Apasionada por conectar con las personas, escuchar historias y acompañar procesos de crecimiento. Mi vocación está en lo humano: el talento, la cultura organizacional y la inclusión",
     helpText: {
@@ -111,7 +124,15 @@ const mentors = [
       ],
       outro: null
     },
-    reviewsImage: maribelReviewOptimized.src
+    reviewsImages: [
+      {
+        src: maribelReviewOptimized.src,
+        srcSet: maribelReviewOptimized.srcSet.attribute,
+        width: maribelReviewOptimized.attributes.width,
+        height: maribelReviewOptimized.attributes.height,
+        alt: "Reseña de Maribel Bartolo en LinkedIn",
+      },
+    ]
   },
   {
     name: "Nicole Quispe",
@@ -119,6 +140,9 @@ const mentors = [
     availability: "Disponible",
     rating: 5,
     image: nicoleOptimized.src,
+    imageSrcSet: nicoleOptimized.srcSet.attribute,
+    imageWidth: nicoleOptimized.attributes.width,
+    imageHeight: nicoleOptimized.attributes.height,
     bio: "Desarrolladora full-stack y consultora en tecnología, especializada en ayudar a profesionales a transicionar al mundo tech y mejorar sus habilidades técnicas.",
     description: "Me apasionan la tecnología y los datos. Disfruto transformar información en decisiones inteligentes.",
     helpText: {
@@ -138,7 +162,22 @@ const mentors = [
       ],
       outro: null
     },
-    reviewsImage: nicoleReviewOptimized.src
+    reviewsImages: [
+      {
+        src: nicoleReviewOptimized.src,
+        srcSet: nicoleReviewOptimized.srcSet.attribute,
+        width: nicoleReviewOptimized.attributes.width,
+        height: nicoleReviewOptimized.attributes.height,
+        alt: "Reseña de Nicole Quispe en LinkedIn",
+      },
+      {
+        src: nicoleReview2Optimized.src,
+        srcSet: nicoleReview2Optimized.srcSet.attribute,
+        width: nicoleReview2Optimized.attributes.width,
+        height: nicoleReview2Optimized.attributes.height,
+        alt: "Reseña de Nicole Quispe en LinkedIn",
+      },
+    ]
   },
   {
     name: "Milagros Moreno",
@@ -146,6 +185,9 @@ const mentors = [
     availability: "Disponible",
     rating: 5,
     image: milagrosOptimized.src,
+    imageSrcSet: milagrosOptimized.srcSet.attribute,
+    imageWidth: milagrosOptimized.attributes.width,
+    imageHeight: milagrosOptimized.attributes.height,
     bio: "Economista especializada en análisis de datos y acompañamiento profesional, combinando habilidades técnicas con desarrollo integral.",
     description: "Me apasiona acompañar a las personas en su crecimiento personal y profesional, generando espacios de aprendizaje y mejora continua. Paralelamente, como economista, disfruto analizar datos y transformar información en decisiones estratégicas. Manejo herramientas como Excel avanzado, Power BI, Python para el análisis económico, la automatización de procesos y la visualización de resultados.",
     helpText: {
@@ -157,7 +199,7 @@ const mentors = [
       ],
       outro: "Mi enfoque busca fortalecer tanto las habilidades técnicas como el desarrollo integral de cada persona."
     },
-    reviewsImage: null,
+    reviewsImages: [],
     reviewText: {
       quote: "Quiero expresar mi más sincero agradecimiento a Milagros Moreno por el apoyo brindado durante mi proceso de selección para lo que hoy es mi puesto como practicante preprofesional en Enazul. Su atención constante hacia mi perfil y su acompañamiento en cada etapa del proceso fueron fundamentales para alcanzar este logro. Su orientación, compromiso e insistencia hicieron que mi postulación se convirtiera en un éxito compartido.",
       author: "Guillermo Calderón",
@@ -165,6 +207,24 @@ const mentors = [
     }
   },
 ];
+
+const mentorsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Mentores de CuestionaBle Mentorship",
+  itemListElement: mentors.map((mentor, idx) => ({
+    "@type": "ListItem",
+    position: idx + 1,
+    item: {
+      "@type": "Person",
+      name: mentor.name,
+      description: mentor.bio,
+      knowsAbout: mentor.topic,
+      image: new URL(mentor.image, siteUrl).toString(),
+      worksFor: { "@id": "https://cuestionable.pe/#organization" },
+    },
+  })),
+};
 
 const faqs = [
   {
@@ -186,6 +246,9 @@ const faqs = [
 ---
 
 <Layout>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(mentorsSchema)} />
+  </Fragment>
   <FloatingNav formUrl={formUrl} />
 
   <main id="main-content">
@@ -199,11 +262,14 @@ const faqs = [
     <ProcessSection steps={steps} />
 
     <!-- MENTORS -->
-    <section id="mentores" class="mentors relative py-20 md:py-24 bg-white">
+    <section id="mentores" class="mentors relative py-14 md:py-18 bg-white">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <div class="section-badge">Equipo</div>
           <h2 class="section-title">Nuestros mentores</h2>
+          <p class="text-base text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
+            Explora perfiles por especialidad y encuentra a la persona indicada para tu objetivo.
+          </p>
         </div>
 
         <MentorsSection mentors={mentors} client:load />
@@ -211,7 +277,7 @@ const faqs = [
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="faq py-20 md:py-24 bg-brand-bg-secondary">
+    <section id="faq" class="faq py-14 md:py-18 bg-brand-bg-secondary">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <div class="section-badge">FAQ</div>
@@ -220,7 +286,7 @@ const faqs = [
 
         <FAQSection faqs={faqs} client:load />
 
-        <div class="text-center py-8 max-w-[600px] mx-auto reveal-on-scroll">
+        <div class="text-center py-5 max-w-[600px] mx-auto reveal-on-scroll">
           <p class="text-[var(--text-secondary)]">
             ¿Más preguntas? Escríbenos a <a
               href="mailto:cuestionable.info@gmail.com"
@@ -233,7 +299,7 @@ const faqs = [
     </section>
 
     <!-- VIDEOS -->
-    <section class="videos py-20 md:py-24 bg-white">
+    <section class="videos py-14 md:py-18 bg-white">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <div class="section-badge">Videos</div>
@@ -244,7 +310,7 @@ const faqs = [
         </div>
 
       <div
-        class="flex justify-between items-center p-8 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] mb-12 transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg flex-col md:flex-row gap-6 md:gap-0 text-center md:text-left reveal-on-scroll"
+        class="flex justify-between items-center p-5 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] mb-8 transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg flex-col md:flex-row gap-6 md:gap-0 text-center md:text-left reveal-on-scroll"
       >
         <div class="flex items-center gap-6 flex-col md:flex-row">
           <div

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[800px] mx-auto"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full"
   >
     <div
       v-for="(mentor, index) in mentors"
@@ -15,10 +15,13 @@
         :availability="mentor.availability"
         :rating="mentor.rating"
         :image="mentor.image"
+        :image-src-set="mentor.imageSrcSet"
+        :image-width="mentor.imageWidth"
+        :image-height="mentor.imageHeight"
         :bio="mentor.bio"
         :description="mentor.description"
         :help-text="mentor.helpText"
-        :reviews-image="mentor.reviewsImage"
+        :reviews-images="mentor.reviewsImages"
         :review-text="mentor.reviewText"
         button-text="Conocer más"
         @show-bio="openBioModal"
@@ -33,9 +36,12 @@
     :mentor-bio="selectedBio.bio"
     :mentor-description="selectedBio.description"
     :mentor-help-text="selectedBio.helpText"
-    :mentor-reviews-image="selectedBio.reviewsImage"
+    :mentor-reviews-images="selectedBio.reviewsImages"
     :mentor-review-text="selectedBio.reviewText"
     :mentor-image="selectedBio.image"
+    :mentor-image-src-set="selectedBio.imageSrcSet"
+    :mentor-image-width="selectedBio.imageWidth"
+    :mentor-image-height="selectedBio.imageHeight"
     :mentor-rating="selectedBio.rating"
     @close="closeBioModal"
   />
@@ -66,9 +72,12 @@ const selectedBio = ref({
   bio: "",
   description: "",
   helpText: null,
-  reviewsImage: "",
+  reviewsImages: [],
   reviewText: null,
   image: "",
+  imageSrcSet: "",
+  imageWidth: null,
+  imageHeight: null,
   rating: 0,
 });
 

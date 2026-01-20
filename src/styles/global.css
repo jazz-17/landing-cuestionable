@@ -198,7 +198,7 @@
 
   /* Section header styles */
   .section-badge {
-    @apply inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 uppercase tracking-wider border;
+    @apply inline-block px-3 py-1 text-xs font-semibold rounded-full mb-2 uppercase tracking-wider border;
     background: rgb(251, 251, 251);
     color: var(--primary-dark);
     border-color: rgba(158, 191, 166, 0.2);
@@ -210,7 +210,7 @@
   }
 
   .section-header {
-    @apply text-center mb-16;
+    @apply text-center mb-10;
   }
 
   /* Gradient backgrounds */

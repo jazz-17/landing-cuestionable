@@ -3,13 +3,18 @@
     class="bg-white border border-[var(--border)] rounded-2xl overflow-hidden transition-all duration-300 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 group"
   >
     <div
-      class="relative w-full aspect-square overflow-hidden bg-[var(--bg-secondary)]"
+      class="relative w-full aspect-[4/3] overflow-hidden bg-[var(--bg-secondary)]"
     >
       <img
         v-if="image"
         :src="imageUrl"
-        :alt="name"
+        :srcset="imageSrcSet || undefined"
+        :sizes="imageSrcSet ? imageSizes : undefined"
+        :width="imageWidth ?? undefined"
+        :height="imageHeight ?? undefined"
+        :alt="`Foto de ${name}`"
         loading="lazy"
+        decoding="async"
         class="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-105"
       />
       <div
@@ -23,11 +28,15 @@
           'absolute bottom-3 right-3 w-4 h-4 rounded-full border-[2px] border-white shadow-sm',
           availabilityClass === 'available' ? 'bg-emerald-500' : 'bg-slate-400',
         ]"
+        :title="availability"
+        aria-hidden="true"
       ></div>
+      <span class="sr-only">{{ availability }}</span>
     </div>
 
-    <div class="p-6 flex flex-col gap-8 flex-1 justify-between">
-      <div class="flex gap-2 justify-between items-start">
+    <div class="p-4 lg:p-5 flex flex-col gap-6 flex-1 justify-between">
+      <div class="flex flex-col gap-3">
+        <div class="flex gap-2 justify-between items-start">
         <div class="flex items-center justify-between gap-3">
           <h3
             class="text-xl font-bold text-[var(--text-primary)] m-0 tracking-tight flex-1"
@@ -40,6 +49,37 @@
         >
           {{ topic }}
         </div>
+      </div>
+
+        <div class="flex items-center justify-between gap-3">
+          <div
+            class="flex items-center gap-1"
+            :aria-label="`Calificación ${rating} de 5`"
+            role="img"
+          >
+            <Star
+              v-for="n in 5"
+              :key="n"
+              class="w-4 h-4"
+              :class="n <= rating ? 'text-amber-400 fill-amber-400' : 'text-slate-200 fill-slate-200'"
+            />
+          </div>
+
+          <div
+            class="text-xs font-semibold"
+            :class="availabilityClass === 'available' ? 'text-emerald-600' : 'text-[var(--text-tertiary)]'"
+          >
+            {{ availability }}
+          </div>
+        </div>
+
+        <p
+          v-if="bio"
+          class="text-[14px] leading-[1.7] text-[var(--text-secondary)] m-0"
+          style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"
+        >
+          {{ bio }}
+        </p>
       </div>
 
       <button
@@ -55,6 +95,7 @@
 
 <script setup>
 import { computed } from "vue";
+import { Star } from "lucide-vue-next";
 
 const props = defineProps({
   name: {
@@ -77,6 +118,18 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  imageSrcSet: {
+    type: String,
+    default: "",
+  },
+  imageWidth: {
+    type: [Number, String],
+    default: null,
+  },
+  imageHeight: {
+    type: [Number, String],
+    default: null,
+  },
   bio: {
     type: String,
     default: "",
@@ -89,9 +142,9 @@ const props = defineProps({
     type: Object,
     default: null,
   },
-  reviewsImage: {
-    type: String,
-    default: "",
+  reviewsImages: {
+    type: Array,
+    default: () => [],
   },
   reviewText: {
     type: Object,
@@ -112,9 +165,12 @@ const showBioModal = () => {
     bio: props.bio,
     description: props.description,
     helpText: props.helpText,
-    reviewsImage: props.reviewsImage,
+    reviewsImages: props.reviewsImages,
     reviewText: props.reviewText,
     image: props.image,
+    imageSrcSet: props.imageSrcSet,
+    imageWidth: props.imageWidth,
+    imageHeight: props.imageHeight,
     rating: props.rating,
   });
 };
@@ -126,6 +182,8 @@ const imageUrl = computed(() => {
   }
   return `${import.meta.env.BASE_URL}${props.image}`;
 });
+
+const imageSizes = "(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw";
 
 const initials = computed(() => {
   return props.name
