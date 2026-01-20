@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-x-16 w-full"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-x-10 w-full"
   >
     <div
       v-for="(mentor, index) in mentors"

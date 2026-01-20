@@ -1,5 +1,5 @@
 <template>
-  <section class="relative py-12 md:py-16">
+  <section class="relative py-12 md:py-18">
     <div class="container relative">
       <div class="max-w-[800px] mx-auto text-center">
 
