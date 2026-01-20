@@ -62,12 +62,14 @@ import { getImage } from "astro:assets";
 import adrianImg from "@/assets/mentors/andrian_zamudio.png";
 import maribelImg from "@/assets/mentors/maribel_bartolo.png";
 import nicoleImg from "@/assets/mentors/nicole_quispe.png";
+import milagrosImg from "@/assets/mentors/milagros_moreno.jpg";
 import maribelReviewImg from "@/assets/mentors/review_maribel.png";
 import nicoleReviewImg from "@/assets/mentors/review_nicole.png";
 
 const adrianOptimized = await getImage({ src: adrianImg, format: 'webp', width: 800 });
 const maribelOptimized = await getImage({ src: maribelImg, format: 'webp', width: 800 });
 const nicoleOptimized = await getImage({ src: nicoleImg, format: 'webp', width: 800 });
+const milagrosOptimized = await getImage({ src: milagrosImg, format: 'webp', width: 800 });
 const maribelReviewOptimized = await getImage({ src: maribelReviewImg, format: 'webp', width: 800 });
 const nicoleReviewOptimized = await getImage({ src: nicoleReviewImg, format: 'webp', width: 800 });
 
@@ -80,10 +82,14 @@ const mentors = [
     image: adrianOptimized.src,
     bio: "Especialista en marketing digital con más de 5 años de experiencia ayudando a empresas a crecer su presencia online y optimizar sus estrategias de contenido.",
     description: "Apasionado por el marketing y la administración, disfruto transformar los datos en estrategias con propósito. Tengo experiencia en investigación de mercado, gestión de influencers y creación de contenido para redes sociales. También participé en la elaboración de un libro, lo que reforzó mi disciplina y enfoque en proyectos con valor real.",
-    helpText: `<ul>
-<li>Puedo apoyarte en investigación de mercado, análisis de competencia, gestión de KOL, estrategias de contenido digital y elaboración de un libro para Amazon.</li>
-<li>Me motiva compartir lo que sé y acompañar a otros en el desarrollo de ideas que conecten e inspiren.</li>
-</ul>`,
+    helpText: {
+      intro: null,
+      items: [
+        "Puedo apoyarte en investigación de mercado, análisis de competencia, gestión de KOL, estrategias de contenido digital y elaboración de un libro para Amazon.",
+        "Me motiva compartir lo que sé y acompañar a otros en el desarrollo de ideas que conecten e inspiren."
+      ],
+      outro: null
+    },
     reviewsImage: null
   },
   {
@@ -94,14 +100,17 @@ const mentors = [
     image: maribelOptimized.src,
     bio: "Experta en gestión de talento y desarrollo organizacional, enfocada en crear culturas de trabajo positivas y procesos de selección efectivos.",
     description: "Apasionada por conectar con las personas, escuchar historias y acompañar procesos de crecimiento. Mi vocación está en lo humano: el talento, la cultura organizacional y la inclusión",
-    helpText: `<p>Puedo ofrecerte mentoría personalizada sobre temas como:</p>
-<ul>
-<li>Cómo mejorar tu CV y tu perfil de LinkedIn para destacar frente a reclutadores.</li>
-<li>Estrategias para conseguir tus primeras prácticas preprofesionales.</li>
-<li>Cómo prepararte para entrevistas laborales y comunicar tus fortalezas con confianza.</li>
-<li>Aprende a planificar tu desarrollo profesional y aprovechar oportunidades desde la universidad.</li>
-<li>Descubre cómo el voluntariado, las becas y tus primeras experiencias pueden abrirte camino en Recursos Humanos</li>
-</ul>`,
+    helpText: {
+      intro: "Puedo ofrecerte mentoría personalizada sobre temas como:",
+      items: [
+        "Cómo mejorar tu CV y tu perfil de LinkedIn para destacar frente a reclutadores.",
+        "Estrategias para conseguir tus primeras prácticas preprofesionales.",
+        "Cómo prepararte para entrevistas laborales y comunicar tus fortalezas con confianza.",
+        "Aprende a planificar tu desarrollo profesional y aprovechar oportunidades desde la universidad.",
+        "Descubre cómo el voluntariado, las becas y tus primeras experiencias pueden abrirte camino en Recursos Humanos."
+      ],
+      outro: null
+    },
     reviewsImage: maribelReviewOptimized.src
   },
   {
@@ -112,18 +121,48 @@ const mentors = [
     image: nicoleOptimized.src,
     bio: "Desarrolladora full-stack y consultora en tecnología, especializada en ayudar a profesionales a transicionar al mundo tech y mejorar sus habilidades técnicas.",
     description: "Me apasionan la tecnología y los datos. Disfruto transformar información en decisiones inteligentes.",
-    helpText: `<p>Te ayudo a crear dashboards en Power BI que impacten visualmente y a automatizar tus procesos con Power Query y Power Automate, para que tomes decisiones más rápido. Te cuento algunos de mis proyectos 👇</p>
-<p><strong>Exchange Rate Dashboard</strong></p>
-<ul>
-<li>Diseñado para analizar ventas netas y comparar el rendimiento anual, optimizando la visualización de tendencias clave.</li>
-<li>Herramientas: Power BI · Power Automate · SAP Analytics Cloud</li>
-</ul>
-<p><strong>Customer Loyalty Dashboard</strong></p>
-<ul>
-<li>Un proyecto clasifica automáticamente a los clientes frecuentes según sus puntos acumulados, mejorando la segmentación y fidelización.</li>
-<li>Herramientas: Google Sheets · Looker Studio</li>
-</ul>`,
+    helpText: {
+      intro: "Te ayudo a crear dashboards en Power BI que impacten visualmente y a automatizar tus procesos con Power Query y Power Automate, para que tomes decisiones más rápido. Te cuento algunos de mis proyectos 👇",
+      items: null,
+      sections: [
+        {
+          title: "Exchange Rate Dashboard",
+          description: "Diseñado para analizar ventas netas y comparar el rendimiento anual, optimizando la visualización de tendencias clave.",
+          tools: ["Power BI", "Power Automate", "SAP Analytics Cloud"]
+        },
+        {
+          title: "Customer Loyalty Dashboard",
+          description: "Un proyecto clasifica automáticamente a los clientes frecuentes según sus puntos acumulados, mejorando la segmentación y fidelización.",
+          tools: ["Google Sheets", "Looker Studio"]
+        }
+      ],
+      outro: null
+    },
     reviewsImage: nicoleReviewOptimized.src
+  },
+  {
+    name: "Milagros Moreno",
+    topic: "Análisis de Datos",
+    availability: "Disponible",
+    rating: 5,
+    image: milagrosOptimized.src,
+    bio: "Economista especializada en análisis de datos y acompañamiento profesional, combinando habilidades técnicas con desarrollo integral.",
+    description: "Me apasiona acompañar a las personas en su crecimiento personal y profesional, generando espacios de aprendizaje y mejora continua. Paralelamente, como economista, disfruto analizar datos y transformar información en decisiones estratégicas. Manejo herramientas como Excel avanzado, Power BI, Python para el análisis económico, la automatización de procesos y la visualización de resultados.",
+    helpText: {
+      intro: "Puedo ayudarte en el análisis económico y de datos para la toma de decisiones, así como en el desarrollo de proyectos académicos o profesionales, utilizando herramientas como Excel avanzado, Power BI y Python. Además, acompaño procesos de crecimiento personal y profesional, apoyando en:",
+      items: [
+        "Definición de objetivos profesionales",
+        "Mejora del CV y perfil de LinkedIn",
+        "Preparación para entrevistas"
+      ],
+      outro: "Mi enfoque busca fortalecer tanto las habilidades técnicas como el desarrollo integral de cada persona."
+    },
+    reviewsImage: null,
+    reviewText: {
+      quote: "Quiero expresar mi más sincero agradecimiento a Milagros Moreno por el apoyo brindado durante mi proceso de selección para lo que hoy es mi puesto como practicante preprofesional en Enazul. Su atención constante hacia mi perfil y su acompañamiento en cada etapa del proceso fueron fundamentales para alcanzar este logro. Su orientación, compromiso e insistencia hicieron que mi postulación se convirtiera en un éxito compartido.",
+      author: "Guillermo Calderón",
+      role: "Estudiante de Economía UNMSM"
+    }
   },
 ];
 
@@ -147,64 +186,62 @@ const faqs = [
 ---
 
 <Layout>
-  <FloatingNav formUrl={formUrl} client:load />
+  <FloatingNav formUrl={formUrl} />
 
-  <!-- HERO -->
-  <HeroSection formUrl={formUrl} client:load />
+  <main id="main-content">
+    <!-- HERO -->
+    <HeroSection formUrl={formUrl} />
 
-  <!-- BENEFITS -->
-  <BenefitsSection client:visible />
+    <!-- BENEFITS -->
+    <BenefitsSection />
 
-  <!-- PROCESS -->
-  <ProcessSection steps={steps} client:visible />
+    <!-- PROCESS -->
+    <ProcessSection steps={steps} />
 
-  <!-- MENTORS -->
-  <section
-    id="mentores"
-    class="mentors relative py-20 md:py-24 bg-white"
-  >
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="section-badge">Equipo</div>
-        <h2 class="section-title">Nuestros mentores</h2>
+    <!-- MENTORS -->
+    <section id="mentores" class="mentors relative py-20 md:py-24 bg-white">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">Equipo</div>
+          <h2 class="section-title">Nuestros mentores</h2>
+        </div>
+
+        <MentorsSection mentors={mentors} client:load />
       </div>
+    </section>
 
-      <MentorsSection mentors={mentors} client:load />
-    </div>
-  </section>
+    <!-- FAQ -->
+    <section id="faq" class="faq py-20 md:py-24 bg-brand-bg-secondary">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">FAQ</div>
+          <h2 class="section-title">Preguntas frecuentes</h2>
+        </div>
 
-  <!-- FAQ -->
-  <section id="faq" class="faq py-20 md:py-24 bg-brand-bg-secondary">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="section-badge">FAQ</div>
-        <h2 class="section-title">Preguntas frecuentes</h2>
+        <FAQSection faqs={faqs} client:load />
+
+        <div class="text-center py-8 max-w-[600px] mx-auto reveal-on-scroll">
+          <p class="text-[var(--text-secondary)]">
+            ¿Más preguntas? Escríbenos a <a
+              href="mailto:cuestionable.info@gmail.com"
+              class="text-[var(--primary)] no-underline font-semibold hover:underline"
+              >cuestionable.info@gmail.com</a
+            >
+          </p>
+        </div>
       </div>
+    </section>
 
-      <FAQSection faqs={faqs} client:load />
-
-      <div class="text-center py-8 max-w-[600px] mx-auto reveal-on-scroll">
-        <p class="text-[var(--text-secondary)]">
-          ¿Más preguntas? Escríbenos a <a
-            href="mailto:cuestionable.info@gmail.com"
-            class="text-[var(--primary)] no-underline font-semibold hover:underline"
-            >cuestionable.info@gmail.com</a
-          >
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIDEOS -->
-  <section class="videos py-20 md:py-24 bg-white">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <div class="section-badge">Videos</div>
-        <h2 class="section-title">Inspírate con historias reales</h2>
-        <p class="text-base text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
-          Mira nuestro podcast y conecta con personas que impulsan cambios y comparten su camino
-        </p>
-      </div>
+    <!-- VIDEOS -->
+    <section class="videos py-20 md:py-24 bg-white">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="section-badge">Videos</div>
+          <h2 class="section-title">Inspírate con historias reales</h2>
+          <p class="text-base text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
+            Mira nuestro podcast y conecta con personas que impulsan cambios y comparten su camino
+          </p>
+        </div>
 
       <div
         class="flex justify-between items-center p-8 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] mb-12 transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg flex-col md:flex-row gap-6 md:gap-0 text-center md:text-left reveal-on-scroll"
@@ -251,13 +288,14 @@ const faqs = [
         </a>
       </div>
 
-      <VideosSection
-        client:load
-        videos={latestVideos}
-        channelUrl={youtubeChannel.url}
-      />
-    </div>
-  </section>
+        <VideosSection
+          client:load
+          videos={latestVideos}
+          channelUrl={youtubeChannel.url}
+        />
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <FooterSection />
@@ -285,4 +323,3 @@ const faqs = [
     revealElements.forEach((el) => observer.observe(el));
   });
 </script>
-

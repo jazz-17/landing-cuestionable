@@ -7,9 +7,8 @@
         <div
           v-for="(benefit, index) in benefits"
           :key="index"
-          class="text-center px-6 py-8 relative z-[1] vue-reveal"
+          class="text-center px-6 py-8 relative z-[1] reveal-on-scroll"
           :style="{ transitionDelay: `${(index + 1) * 0.1}s` }"
-          ref="benefitRefs"
         >
           <div
             class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-[rgba(158,191,166,0.1)] flex items-center justify-center text-[var(--primary)]"
@@ -39,11 +38,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useScrollReveal } from "@/composables/useScrollReveal";
-
-const benefitRefs = ref([]);
-
 const benefits = [
   {
     title: "Sesiones personalizadas",
@@ -64,6 +58,4 @@ const benefits = [
     icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />',
   },
 ];
-
-useScrollReveal(benefitRefs);
 </script>

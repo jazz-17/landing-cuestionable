@@ -8,6 +8,9 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://cuestionable.pe',
+  session: {
+    driver: "memory",
+  },
   adapter: cloudflare({
     platformProxy: {
       enabled: true

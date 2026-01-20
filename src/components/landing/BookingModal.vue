@@ -181,11 +181,6 @@ const handleOpenChange = (open) => {
 };
 
 const handleSubmit = () => {
-  console.log("Form submitted:", {
-    mentor: props.mentorName,
-    ...formData.value,
-  });
-
   const params = new URLSearchParams({
     mentor: props.mentorName,
     name: formData.value.name,
@@ -196,7 +191,8 @@ const handleSubmit = () => {
 
   window.open(
     `https://forms.gle/JdC6fM1Fazotx6b6A?${params.toString()}`,
-    "_blank"
+    "_blank",
+    "noopener,noreferrer"
   );
 
   formData.value = {

@@ -1,30 +1,28 @@
 <template>
-  <Card
-    class="flex flex-row gap-4 md:gap-5 p-6 md:p-8 transition-all duration-300 hover:border-[rgba(74,144,226,0.3)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5"
+  <div
+    class="flex flex-row gap-4 md:gap-5 p-5 md:p-6 bg-white rounded-xl transition-all duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-0.5"
   >
     <div
-      class="shrink-0 w-10 md:w-12 h-10 md:h-12 flex items-center justify-center rounded-[10px] bg-gradient-subtle text-[var(--primary)] text-xl md:text-2xl font-bold font-[Manrope,sans-serif]"
+      class="shrink-0 w-10 md:w-11 h-10 md:h-11 flex items-center justify-center rounded-lg bg-[var(--bg-secondary)] text-[var(--primary)] text-lg md:text-xl font-semibold"
     >
       {{ number }}
     </div>
-    <div class="flex-1">
+    <div class="flex-1 pt-0.5">
       <h3
-        class="text-lg md:text-xl font-bold text-[var(--text-primary)] mb-2 tracking-[-0.01em]"
+        class="text-base md:text-lg font-semibold text-[var(--text-primary)] mb-1 tracking-[-0.01em]"
       >
         {{ title }}
       </h3>
       <p
-        class="text-[15px] md:text-base leading-relaxed text-[var(--text-secondary)] m-0"
+        class="text-[14px] md:text-[15px] leading-relaxed text-[var(--text-secondary)] m-0"
       >
         {{ description }}
       </p>
     </div>
-  </Card>
+  </div>
 </template>
 
 <script setup>
-import { Card } from "@/components/ui/card";
-
 defineProps({
   number: {
     type: Number,

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8 max-w-[1000px] mx-auto"
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[800px] mx-auto"
   >
     <div
       v-for="(mentor, index) in mentors"
@@ -19,6 +19,7 @@
         :description="mentor.description"
         :help-text="mentor.helpText"
         :reviews-image="mentor.reviewsImage"
+        :review-text="mentor.reviewText"
         button-text="Conocer más"
         @show-bio="openBioModal"
       />
@@ -33,6 +34,7 @@
     :mentor-description="selectedBio.description"
     :mentor-help-text="selectedBio.helpText"
     :mentor-reviews-image="selectedBio.reviewsImage"
+    :mentor-review-text="selectedBio.reviewText"
     :mentor-image="selectedBio.image"
     :mentor-rating="selectedBio.rating"
     @close="closeBioModal"
@@ -63,8 +65,9 @@ const selectedBio = ref({
   topic: "",
   bio: "",
   description: "",
-  helpText: "",
+  helpText: null,
   reviewsImage: "",
+  reviewText: null,
   image: "",
   rating: 0,
 });

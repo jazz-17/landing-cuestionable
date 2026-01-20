@@ -1,12 +1,17 @@
 <template>
-  <div
-    class="relative w-full aspect-video rounded-xl overflow-hidden cursor-pointer bg-[var(--bg-secondary)] transition-all duration-300 transition-smooth hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] group"
+  <button
+    type="button"
+    class="relative w-full aspect-video rounded-xl overflow-hidden cursor-pointer bg-[var(--bg-secondary)] transition-all duration-300 transition-smooth hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] group border-none p-0 text-left"
+    :aria-label="`Ver video`"
     @click="$emit('click')"
   >
     <img
       :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`"
-      :alt="`Video de YouTube`"
+      alt="Miniatura del video de YouTube"
       loading="lazy"
+      decoding="async"
+      width="1280"
+      height="720"
       class="w-full h-full object-cover block"
       @error="useFallback"
     />
@@ -30,7 +35,7 @@
     >
       Ver video
     </div>
-  </div>
+  </button>
 </template>
 
 <script setup>

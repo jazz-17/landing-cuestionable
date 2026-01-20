@@ -43,6 +43,7 @@
       </div>
 
       <button
+        type="button"
         class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-xl text-[15px] font-semibold cursor-pointer transition-all duration-200 hover:bg-[var(--primary-dark)] hover:shadow-md active:translate-y-[1px]"
         @click="showBioModal"
       >
@@ -85,12 +86,16 @@ const props = defineProps({
     default: "",
   },
   helpText: {
-    type: String,
-    default: "",
+    type: Object,
+    default: null,
   },
   reviewsImage: {
     type: String,
     default: "",
+  },
+  reviewText: {
+    type: Object,
+    default: null,
   },
   buttonText: {
     type: String,
@@ -108,6 +113,7 @@ const showBioModal = () => {
     description: props.description,
     helpText: props.helpText,
     reviewsImage: props.reviewsImage,
+    reviewText: props.reviewText,
     image: props.image,
     rating: props.rating,
   });
@@ -134,9 +140,5 @@ const availabilityClass = computed(() => {
   return props.availability.toLowerCase() === "disponible"
     ? "available"
     : "unavailable";
-});
-
-const starsDisplay = computed(() => {
-  return "★".repeat(props.rating) + "☆".repeat(5 - props.rating);
 });
 </script>
