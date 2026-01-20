@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-[700px] mx-auto mb-8 flex flex-col gap-2">
-    <Accordion type="single" collapsible class="w-full flex flex-col gap-2">
+  <div class="max-w-[700px] mx-auto mb-6 flex flex-col gap-1.5">
+    <Accordion type="single" collapsible class="w-full flex flex-col gap-1.5">
       <AccordionItem
         v-for="(faq, index) in faqs"
         :key="index"
@@ -10,7 +10,7 @@
         ref="accordionItems"
       >
         <AccordionTrigger
-          class="px-5 md:px-6 py-4 md:py-5 hover:no-underline group"
+          class="px-4 md:px-5 py-3.5 md:py-4 hover:no-underline group"
         >
           <span
             class="text-base md:text-[17px] font-medium text-[var(--text-primary)] text-left leading-relaxed tracking-[-0.01em] group-hover:text-[var(--primary-dark)] transition-colors duration-200"
@@ -18,7 +18,7 @@
           >
         </AccordionTrigger>
         <AccordionContent
-          class="px-5 md:px-6 pb-5 md:pb-6 text-[15px] md:text-base leading-[1.7] text-[var(--text-secondary)]"
+          class="px-4 md:px-5 pb-4 md:pb-5 text-[15px] md:text-base leading-[1.7] text-[var(--text-secondary)]"
         >
           {{ faq.answer }}
         </AccordionContent>

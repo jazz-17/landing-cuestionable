@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="videos.length > 0"
-      class="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8"
+      class="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6"
     >
       <div
         v-for="(videoId, index) in videos"
@@ -17,17 +17,17 @@
 
     <div
       v-else
-      class="text-center py-16 px-8 bg-white rounded-2xl border border-dashed border-[var(--border)] vue-reveal"
+      class="text-center py-12 px-6 bg-white rounded-2xl border border-dashed border-[var(--border)] vue-reveal"
       ref="emptyStateRef"
     >
-      <p class="text-[var(--text-secondary)] text-lg mb-6">
+      <p class="text-[var(--text-secondary)] text-lg mb-4">
         Próximamente encontrarás aquí nuestros últimos videos
       </p>
       <a
         :href="channelUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-8 py-3 bg-[var(--primary)] text-white no-underline rounded-full font-semibold transition-all duration-200 hover:bg-[var(--primary-dark)] hover:shadow-md hover:-translate-y-1"
+        class="inline-flex items-center gap-2 px-7 py-3 bg-[var(--primary)] text-white no-underline rounded-full font-semibold transition-all duration-200 hover:bg-[var(--primary-dark)] hover:shadow-md hover:-translate-y-1"
       >
         Visitar canal
       </a>

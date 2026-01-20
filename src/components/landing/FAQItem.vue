@@ -3,7 +3,7 @@
     class="bg-white border border-[var(--border)] rounded-xl overflow-hidden transition-all duration-200 transition-smooth hover:border-[rgba(74,144,226,0.2)]"
   >
     <button
-      class="w-full px-5 md:px-6 py-4 md:py-5 bg-transparent border-none flex justify-between items-center cursor-pointer text-left transition-all duration-200 transition-smooth hover:bg-[var(--bg-secondary)]"
+      class="w-full px-4 md:px-5 py-3.5 md:py-4 bg-transparent border-none flex justify-between items-center cursor-pointer text-left transition-all duration-200 transition-smooth hover:bg-[var(--bg-secondary)]"
       @click="toggle"
       :aria-expanded="isOpen"
     >
@@ -41,7 +41,7 @@
     >
       <div class="overflow-hidden">
         <div
-          class="px-5 md:px-6 py-5 md:py-6 text-[15px] md:text-base leading-[1.7] text-[var(--text-secondary)] border-t border-[var(--border)]"
+          class="px-4 md:px-5 py-4 md:py-5 text-[15px] md:text-base leading-[1.7] text-[var(--text-secondary)] border-t border-[var(--border)]"
         >
           <slot>{{ answer }}</slot>
         </div>

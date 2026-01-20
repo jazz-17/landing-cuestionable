@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[var(--text-primary)] text-white py-15 pb-8">
+  <footer class="bg-[var(--text-primary)] text-white py-10 md:py-12 pb-7">
     <div class="container">
       <div
         class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-8 md:gap-12 pb-8 border-b border-white/10"
@@ -69,7 +69,7 @@
         </div>
       </div>
 
-      <div class="text-center pt-6 text-sm opacity-60">
+      <div class="text-center pt-5 text-sm opacity-60">
         <p>&copy; {{ new Date().getFullYear() }} CuestionaBle Mentorship</p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-row gap-4 md:gap-5 p-5 md:p-6 bg-white rounded-xl transition-all duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-0.5"
+    class="flex flex-row gap-4 md:gap-5 p-4 md:p-5 bg-white rounded-xl transition-all duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-0.5"
   >
     <div
       class="shrink-0 w-10 md:w-11 h-10 md:h-11 flex items-center justify-center rounded-lg bg-[var(--bg-secondary)] text-[var(--primary)] text-lg md:text-xl font-semibold"

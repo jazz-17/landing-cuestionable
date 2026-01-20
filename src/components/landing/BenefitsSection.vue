@@ -1,17 +1,17 @@
 <template>
-  <section class="benefits relative py-14 md:py-18 bg-white overflow-hidden">
+  <section class="benefits relative py-6 md:py-8 bg-white overflow-hidden">
     <div class="container">
       <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-[1000px] mx-auto"
+        class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1000px] mx-auto"
       >
         <div
           v-for="(benefit, index) in benefits"
           :key="index"
-          class="text-center px-6 py-8 relative z-[1] reveal-on-scroll"
+          class="text-center px-5 py-6 relative z-[1] reveal-on-scroll"
           :style="{ transitionDelay: `${(index + 1) * 0.1}s` }"
         >
           <div
-            class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-[rgba(158,191,166,0.1)] flex items-center justify-center text-[var(--primary)]"
+            class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[rgba(158,191,166,0.1)] flex items-center justify-center text-[var(--primary)]"
           >
             <svg
               width="32"
@@ -25,7 +25,7 @@
               v-html="benefit.icon"
             ></svg>
           </div>
-          <h3 class="text-xl font-bold text-[var(--text-primary)] mb-2.5">
+          <h3 class="text-xl font-bold text-[var(--text-primary)] mb-2">
             {{ benefit.title }}
           </h3>
           <p class="text-[var(--text-secondary)] leading-relaxed">

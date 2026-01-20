@@ -1,11 +1,11 @@
 <template>
-  <section class="relative py-14 md:py-18">
+  <section class="relative py-12 md:py-16">
     <div class="container relative">
       <div class="max-w-[800px] mx-auto text-center">
 
 
         <h1
-          class="text-5xl md:text-[56px] font-bold text-[var(--text-primary)] mb-5 leading-[1.1] tracking-tight animate-fade-in"
+          class="text-5xl md:text-[44px] font-bold text-[var(--text-primary)] mb-4 leading-[1.1] tracking-tight animate-fade-in"
           style="animation-delay: 0.1s"
         >
           Cuando no sabes por dónde empezar, <br />
@@ -15,7 +15,7 @@
         </h1>
 
         <p
-          class="text-lg md:text-xl leading-relaxed text-[var(--text-secondary)] mb-7 max-w-2xl mx-auto animate-fade-in"
+          class="text-lg md:text-xl leading-relaxed text-[var(--text-secondary)] mb-6 max-w-2xl mx-auto animate-fade-in"
           style="animation-delay: 0.2s"
         >
           Conecta con mentores reales y resuelve tus dudas con acompañamiento
@@ -30,7 +30,7 @@
             :href="formUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--primary)] text-white no-underline rounded-full font-semibold text-lg transition-all duration-500 hover:bg-[var(--primary-dark)] hover:shadow-lg hover:-translate-y-1"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[var(--primary)] text-white no-underline rounded-full font-semibold text-base md:text-lg transition-all duration-500 hover:bg-[var(--primary-dark)] hover:shadow-lg hover:-translate-y-1"
           >
             <span>Solicitar mentoría</span>
             <svg
@@ -49,7 +49,7 @@
           </a>
           <a
             href="#como-funciona"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[var(--text-primary)] no-underline rounded-full font-semibold text-lg border border-[var(--border)] transition-all duration-300 hover:border-[var(--primary)] hover:text-[var(--primary)]"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[var(--text-primary)] no-underline rounded-full font-semibold text-base md:text-lg border border-[var(--border)] transition-all duration-300 hover:border-[var(--primary)] hover:text-[var(--primary)]"
           >
             Cómo funciona
           </a>
