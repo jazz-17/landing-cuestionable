@@ -49,24 +49,7 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-between gap-3">
-          <div
-            class="flex items-center gap-1"
-            :aria-label="`Calificación ${rating} de 5`"
-            role="img"
-          >
-            <Star
-              v-for="n in 5"
-              :key="n"
-              class="w-4 h-4"
-              :class="
-                n <= rating
-                  ? 'text-amber-400 fill-amber-400'
-                  : 'text-slate-200 fill-slate-200'
-              "
-            />
-          </div>
-
+        <div class="flex items-center justify-end gap-3">
           <div
             class="text-xs font-semibold"
             :class="
@@ -106,7 +89,6 @@
 
 <script setup>
 import { computed } from "vue";
-import { Star } from "lucide-vue-next";
 
 const props = defineProps({
   name: {
@@ -119,10 +101,6 @@ const props = defineProps({
   },
   availability: {
     type: String,
-    required: true,
-  },
-  rating: {
-    type: Number,
     required: true,
   },
   image: {
@@ -182,7 +160,6 @@ const showBioModal = () => {
     imageSrcSet: props.imageSrcSet,
     imageWidth: props.imageWidth,
     imageHeight: props.imageHeight,
-    rating: props.rating,
   });
 };
 

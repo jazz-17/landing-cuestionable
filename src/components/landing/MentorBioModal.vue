@@ -33,14 +33,6 @@
               >
                 {{ mentorTopic }}
               </div>
-              <div
-                class="flex items-center gap-1 bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded-md shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
-              >
-                <Star class="w-3 h-3 text-amber-400 fill-amber-400" />
-                <span class="text-[10px] font-semibold text-[var(--text-secondary)]"
-                  >{{ mentorRating }}.0</span
-                >
-              </div>
             </div>
 
             <DialogTitle
@@ -216,7 +208,6 @@ import {
   User,
   Sparkles,
   MessageSquareQuote,
-  Star,
 } from "lucide-vue-next";
 
 const props = defineProps({
@@ -244,7 +235,6 @@ const props = defineProps({
     type: [Number, String],
     default: null,
   },
-  mentorRating: Number,
 });
 
 const hasReviews = computed(() => props.mentorReviewsImages?.length > 0 || props.mentorReviewText);

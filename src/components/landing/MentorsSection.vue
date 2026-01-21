@@ -13,7 +13,6 @@
         :name="mentor.name"
         :topic="mentor.topic"
         :availability="mentor.availability"
-        :rating="mentor.rating"
         :image="mentor.image"
         :image-src-set="mentor.imageSrcSet"
         :image-width="mentor.imageWidth"
@@ -42,7 +41,6 @@
     :mentor-image-src-set="selectedBio.imageSrcSet"
     :mentor-image-width="selectedBio.imageWidth"
     :mentor-image-height="selectedBio.imageHeight"
-    :mentor-rating="selectedBio.rating"
     @close="closeBioModal"
   />
 </template>
@@ -78,7 +76,6 @@ const selectedBio = ref({
   imageSrcSet: "",
   imageWidth: null,
   imageHeight: null,
-  rating: 0,
 });
 
 const openBioModal = (bioData) => {
