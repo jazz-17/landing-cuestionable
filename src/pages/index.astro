@@ -1,5 +1,5 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro";
 import FloatingNav from "@/components/FloatingNav.vue";
 import HeroSection from "@/components/landing/HeroSection.vue";
 import BenefitsSection from "@/components/landing/BenefitsSection.vue";
@@ -21,13 +21,9 @@ const youtubeChannel = {
 // To add videos: Just paste the video ID from YouTube URL
 // Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ -> paste 'dQw4w9WgXcQ'
 
-const latestVideos = [
-  "W1xLNhRqXX4",
-  "PkhtfTh8A3w",
-  "9Hau3zKtrIM"
-  
-
-].filter(Boolean);
+const latestVideos = ["W1xLNhRqXX4", "PkhtfTh8A3w", "9Hau3zKtrIM"].filter(
+  Boolean,
+);
 
 const steps = [
   {
@@ -62,7 +58,7 @@ import { getImage } from "astro:assets";
 import adrianImg from "@/assets/mentors/andrian_zamudio.png";
 import maribelImg from "@/assets/mentors/maribel_bartolo.png";
 import nicoleImg from "@/assets/mentors/nicole_quispe.png";
-import milagrosImg from "@/assets/mentors/milagros_moreno.jpg";
+import milagrosImg from "@/assets/mentors/milagros_moreno.png";
 import maribelReviewImg from "@/assets/mentors/review_maribel.png";
 import nicoleReviewImg from "@/assets/mentors/review_nicole.png";
 import nicoleReview2Img from "@/assets/mentors/review_nicole2.jpeg";
@@ -70,38 +66,38 @@ import nicoleReview2Img from "@/assets/mentors/review_nicole2.jpeg";
 const mentorImageTransform = { format: "webp", widths: [320, 480, 640, 800] };
 const reviewImageTransform = { format: "webp", widths: [480, 800, 1200] };
 
-const adrianOptimized = await getImage({ src: adrianImg, ...mentorImageTransform });
-const maribelOptimized = await getImage({ src: maribelImg, ...mentorImageTransform });
-const nicoleOptimized = await getImage({ src: nicoleImg, ...mentorImageTransform });
-const milagrosOptimized = await getImage({ src: milagrosImg, ...mentorImageTransform });
-const maribelReviewOptimized = await getImage({ src: maribelReviewImg, ...reviewImageTransform });
-const nicoleReviewOptimized = await getImage({ src: nicoleReviewImg, ...reviewImageTransform });
-const nicoleReview2Optimized = await getImage({ src: nicoleReview2Img, ...reviewImageTransform });
+const adrianOptimized = await getImage({
+  src: adrianImg,
+  ...mentorImageTransform,
+});
+const maribelOptimized = await getImage({
+  src: maribelImg,
+  ...mentorImageTransform,
+});
+const nicoleOptimized = await getImage({
+  src: nicoleImg,
+  ...mentorImageTransform,
+});
+const milagrosOptimized = await getImage({
+  src: milagrosImg,
+  ...mentorImageTransform,
+});
+const maribelReviewOptimized = await getImage({
+  src: maribelReviewImg,
+  ...reviewImageTransform,
+});
+const nicoleReviewOptimized = await getImage({
+  src: nicoleReviewImg,
+  ...reviewImageTransform,
+});
+const nicoleReview2Optimized = await getImage({
+  src: nicoleReview2Img,
+  ...reviewImageTransform,
+});
 
 const siteUrl = "https://cuestionable.pe";
 
 const mentors = [
-  {
-    name: "Adrian Zamudio",
-    topic: "Marketing",
-    availability: "Disponible",
-    rating: 5,
-    image: adrianOptimized.src,
-    imageSrcSet: adrianOptimized.srcSet.attribute,
-    imageWidth: adrianOptimized.attributes.width,
-    imageHeight: adrianOptimized.attributes.height,
-    bio: "Especialista en marketing digital con más de 5 años de experiencia ayudando a empresas a crecer su presencia online y optimizar sus estrategias de contenido.",
-    description: "Apasionado por el marketing y la administración, disfruto transformar los datos en estrategias con propósito. Tengo experiencia en investigación de mercado, gestión de influencers y creación de contenido para redes sociales. También participé en la elaboración de un libro, lo que reforzó mi disciplina y enfoque en proyectos con valor real.",
-    helpText: {
-      intro: null,
-      items: [
-        "Puedo apoyarte en investigación de mercado, análisis de competencia, gestión de KOL, estrategias de contenido digital y elaboración de un libro para Amazon.",
-        "Me motiva compartir lo que sé y acompañar a otros en el desarrollo de ideas que conecten e inspiren."
-      ],
-      outro: null
-    },
-    reviewsImages: []
-  },
   {
     name: "Maribel Bartolo",
     topic: "Recursos Humanos",
@@ -112,7 +108,8 @@ const mentors = [
     imageWidth: maribelOptimized.attributes.width,
     imageHeight: maribelOptimized.attributes.height,
     bio: "Experta en gestión de talento y desarrollo organizacional, enfocada en crear culturas de trabajo positivas y procesos de selección efectivos.",
-    description: "Apasionada por conectar con las personas, escuchar historias y acompañar procesos de crecimiento. Mi vocación está en lo humano: el talento, la cultura organizacional y la inclusión",
+    description:
+      "Apasionada por conectar con las personas, escuchar historias y acompañar procesos de crecimiento. Mi vocación está en lo humano: el talento, la cultura organizacional y la inclusión",
     helpText: {
       intro: "Puedo ofrecerte mentoría personalizada sobre temas como:",
       items: [
@@ -120,9 +117,9 @@ const mentors = [
         "Estrategias para conseguir tus primeras prácticas preprofesionales.",
         "Cómo prepararte para entrevistas laborales y comunicar tus fortalezas con confianza.",
         "Aprende a planificar tu desarrollo profesional y aprovechar oportunidades desde la universidad.",
-        "Descubre cómo el voluntariado, las becas y tus primeras experiencias pueden abrirte camino en Recursos Humanos."
+        "Descubre cómo el voluntariado, las becas y tus primeras experiencias pueden abrirte camino en Recursos Humanos.",
       ],
-      outro: null
+      outro: null,
     },
     reviewsImages: [
       {
@@ -132,11 +129,11 @@ const mentors = [
         height: maribelReviewOptimized.attributes.height,
         alt: "Reseña de Maribel Bartolo en LinkedIn",
       },
-    ]
+    ],
   },
   {
     name: "Nicole Quispe",
-    topic: "Tecnología",
+    topic: "Business Intelligence",
     availability: "Disponible",
     rating: 5,
     image: nicoleOptimized.src,
@@ -144,23 +141,27 @@ const mentors = [
     imageWidth: nicoleOptimized.attributes.width,
     imageHeight: nicoleOptimized.attributes.height,
     bio: "Desarrolladora full-stack y consultora en tecnología, especializada en ayudar a profesionales a transicionar al mundo tech y mejorar sus habilidades técnicas.",
-    description: "Me apasionan la tecnología y los datos. Disfruto transformar información en decisiones inteligentes.",
+    description:
+      "Me apasionan la tecnología y los datos. Disfruto transformar información en decisiones inteligentes.",
     helpText: {
-      intro: "Te ayudo a crear dashboards en Power BI que impacten visualmente y a automatizar tus procesos con Power Query y Power Automate, para que tomes decisiones más rápido. Te cuento algunos de mis proyectos 👇",
+      intro:
+        "Te ayudo a crear dashboards en Power BI que impacten visualmente y a automatizar tus procesos con Power Query y Power Automate, para que tomes decisiones más rápido. Te cuento algunos de mis proyectos 👇",
       items: null,
       sections: [
         {
           title: "Exchange Rate Dashboard",
-          description: "Diseñado para analizar ventas netas y comparar el rendimiento anual, optimizando la visualización de tendencias clave.",
-          tools: ["Power BI", "Power Automate", "SAP Analytics Cloud"]
+          description:
+            "Diseñado para analizar ventas netas y comparar el rendimiento anual, optimizando la visualización de tendencias clave.",
+          tools: ["Power BI", "Power Automate", "SAP Analytics Cloud"],
         },
         {
           title: "Customer Loyalty Dashboard",
-          description: "Un proyecto clasifica automáticamente a los clientes frecuentes según sus puntos acumulados, mejorando la segmentación y fidelización.",
-          tools: ["Google Sheets", "Looker Studio"]
-        }
+          description:
+            "Un proyecto clasifica automáticamente a los clientes frecuentes según sus puntos acumulados, mejorando la segmentación y fidelización.",
+          tools: ["Google Sheets", "Looker Studio"],
+        },
       ],
-      outro: null
+      outro: null,
     },
     reviewsImages: [
       {
@@ -177,7 +178,29 @@ const mentors = [
         height: nicoleReview2Optimized.attributes.height,
         alt: "Reseña de Nicole Quispe en LinkedIn",
       },
-    ]
+    ],
+  },
+  {
+    name: "Adrian Zamudio",
+    topic: "Marketing",
+    availability: "Disponible",
+    rating: 5,
+    image: adrianOptimized.src,
+    imageSrcSet: adrianOptimized.srcSet.attribute,
+    imageWidth: adrianOptimized.attributes.width,
+    imageHeight: adrianOptimized.attributes.height,
+    bio: "Especialista en marketing digital con más de 5 años de experiencia ayudando a empresas a crecer su presencia online y optimizar sus estrategias de contenido.",
+    description:
+      "Apasionado por el marketing y la administración, disfruto transformar los datos en estrategias con propósito. Tengo experiencia en investigación de mercado, gestión de influencers y creación de contenido para redes sociales. También participé en la elaboración de un libro, lo que reforzó mi disciplina y enfoque en proyectos con valor real.",
+    helpText: {
+      intro: null,
+      items: [
+        "Puedo apoyarte en investigación de mercado, análisis de competencia, gestión de KOL, estrategias de contenido digital y elaboración de un libro para Amazon.",
+        "Me motiva compartir lo que sé y acompañar a otros en el desarrollo de ideas que conecten e inspiren.",
+      ],
+      outro: null,
+    },
+    reviewsImages: [],
   },
   {
     name: "Milagros Moreno",
@@ -189,22 +212,26 @@ const mentors = [
     imageWidth: milagrosOptimized.attributes.width,
     imageHeight: milagrosOptimized.attributes.height,
     bio: "Economista especializada en análisis de datos y acompañamiento profesional, combinando habilidades técnicas con desarrollo integral.",
-    description: "Me apasiona acompañar a las personas en su crecimiento personal y profesional, generando espacios de aprendizaje y mejora continua. Paralelamente, como economista, disfruto analizar datos y transformar información en decisiones estratégicas. Manejo herramientas como Excel avanzado, Power BI, Python para el análisis económico, la automatización de procesos y la visualización de resultados.",
+    description:
+      "Me apasiona acompañar a las personas en su crecimiento personal y profesional, generando espacios de aprendizaje y mejora continua. Paralelamente, como economista, disfruto analizar datos y transformar información en decisiones estratégicas. Manejo herramientas como Excel avanzado, Power BI, Python para el análisis económico, la automatización de procesos y la visualización de resultados.",
     helpText: {
-      intro: "Puedo ayudarte en el análisis económico y de datos para la toma de decisiones, así como en el desarrollo de proyectos académicos o profesionales, utilizando herramientas como Excel avanzado, Power BI y Python. Además, acompaño procesos de crecimiento personal y profesional, apoyando en:",
+      intro:
+        "Puedo ayudarte en el análisis económico y de datos para la toma de decisiones, así como en el desarrollo de proyectos académicos o profesionales, utilizando herramientas como Excel avanzado, Power BI y Python. Además, acompaño procesos de crecimiento personal y profesional, apoyando en:",
       items: [
         "Definición de objetivos profesionales",
         "Mejora del CV y perfil de LinkedIn",
-        "Preparación para entrevistas"
+        "Preparación para entrevistas",
       ],
-      outro: "Mi enfoque busca fortalecer tanto las habilidades técnicas como el desarrollo integral de cada persona."
+      outro:
+        "Mi enfoque busca fortalecer tanto las habilidades técnicas como el desarrollo integral de cada persona.",
     },
     reviewsImages: [],
     reviewText: {
-      quote: "Quiero expresar mi más sincero agradecimiento a Milagros Moreno por el apoyo brindado durante mi proceso de selección para lo que hoy es mi puesto como practicante preprofesional en Enazul. Su atención constante hacia mi perfil y su acompañamiento en cada etapa del proceso fueron fundamentales para alcanzar este logro. Su orientación, compromiso e insistencia hicieron que mi postulación se convirtiera en un éxito compartido.",
+      quote:
+        "Quiero expresar mi más sincero agradecimiento a Milagros Moreno por el apoyo brindado durante mi proceso de selección para lo que hoy es mi puesto como practicante preprofesional en Enazul. Su atención constante hacia mi perfil y su acompañamiento en cada etapa del proceso fueron fundamentales para alcanzar este logro. Su orientación, compromiso e insistencia hicieron que mi postulación se convirtiera en un éxito compartido.",
       author: "Guillermo Calderón",
-      role: "Estudiante de Economía UNMSM"
-    }
+      role: "Estudiante de Economía UNMSM",
+    },
   },
 ];
 
@@ -247,7 +274,10 @@ const faqs = [
 
 <Layout>
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(mentorsSchema)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(mentorsSchema)}
+    />
   </Fragment>
   <FloatingNav formUrl={formUrl} />
 
@@ -263,12 +293,15 @@ const faqs = [
 
     <!-- MENTORS -->
     <section id="mentores" class="mentors relative py-12 md:py-16 bg-white">
-      <div class="container p-0">
+      <div class="container">
         <div class="section-header reveal-on-scroll">
           <div class="section-badge">Equipo</div>
           <h2 class="section-title">Nuestros mentores</h2>
-          <p class="text-base text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
-            Explora perfiles por especialidad y encuentra a la persona indicada para tu objetivo.
+          <p
+            class="text-base text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto"
+          >
+            Explora perfiles por especialidad y encuentra a la persona indicada
+            para tu objetivo.
           </p>
         </div>
 
@@ -304,55 +337,63 @@ const faqs = [
         <div class="section-header reveal-on-scroll">
           <div class="section-badge">Videos</div>
           <h2 class="section-title">Inspírate con historias reales</h2>
-          <p class="text-base text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
-            Mira nuestro podcast y conecta con personas que impulsan cambios y comparten su camino
+          <p
+            class="text-base text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto"
+          >
+            Mira nuestro podcast y conecta con personas que impulsan cambios y
+            comparten su camino
           </p>
         </div>
 
-      <div
-        class="flex justify-between items-center p-4 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] mb-6 transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg flex-col md:flex-row gap-6 md:gap-0 text-center md:text-left reveal-on-scroll"
-      >
-        <div class="flex items-center gap-6 flex-col md:flex-row">
-          <div
-            class="w-16 h-16 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-md"
-            style="background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);"
+        <div
+          class="flex justify-between items-center p-4 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border)] mb-6 transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg flex-col md:flex-row gap-6 md:gap-0 text-center md:text-left reveal-on-scroll"
+        >
+          <div class="flex items-center gap-6 flex-col md:flex-row">
+            <div
+              class="w-16 h-16 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-md"
+              style="background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                ></path>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="text-xl font-bold text-[var(--text-primary)] m-0">
+                {youtubeChannel.name}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)] m-0">
+                {youtubeChannel.handle}
+              </p>
+            </div>
+          </div>
+          <a
+            href={youtubeChannel.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 px-8 py-3 bg-[var(--primary)] text-white no-underline rounded-full font-semibold text-[15px] transition-all duration-200 shadow-sm hover:bg-[var(--primary-dark)] hover:-translate-y-[1px] hover:shadow-md w-full md:w-auto justify-center"
           >
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path
-                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
               ></path>
             </svg>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="text-xl font-bold text-[var(--text-primary)] m-0">
-              {youtubeChannel.name}
-            </h3>
-            <p class="text-sm text-[var(--text-secondary)] m-0">
-              {youtubeChannel.handle}
-            </p>
-          </div>
+            Suscribirse
+          </a>
         </div>
-        <a
-          href={youtubeChannel.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-2 px-8 py-3 bg-[var(--primary)] text-white no-underline rounded-full font-semibold text-[15px] transition-all duration-200 shadow-sm hover:bg-[var(--primary-dark)] hover:-translate-y-[1px] hover:shadow-md w-full md:w-auto justify-center"
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
-            ></path>
-          </svg>
-          Suscribirse
-        </a>
-      </div>
 
         <VideosSection
           client:load

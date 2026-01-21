@@ -1,5 +1,5 @@
 <template>
-  <section class="benefits relative py-6 md:py-8 bg-white overflow-hidden">
+  <section class="benefits relative py-6 md:py-10 bg-white overflow-hidden">
     <div class="container">
       <div
         class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1000px] mx-auto"
@@ -42,19 +42,19 @@ const benefits = [
   {
     title: "Sesiones personalizadas",
     description:
-      "60 minutos completamente enfocados en tus objetivos y necesidades específicas.",
+      "Completamente enfocados en tus objetivos y necesidades",
     icon: '<path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" />',
   },
   {
     title: "Horarios flexibles",
     description:
-      "Agenda tu sesión en el momento que mejor te convenga, sin complicaciones.",
+      "Agenda tu sesión en el momento que mejor te convenga",
     icon: '<circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />',
   },
   {
-    title: "Resultados medibles",
+    title: "Resultados prácticos",
     description:
-      "Seguimiento claro de tu progreso y herramientas prácticas para tu crecimiento.",
+      "Herramientas prácticas para tu crecimiento.",
     icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />',
   },
 ];

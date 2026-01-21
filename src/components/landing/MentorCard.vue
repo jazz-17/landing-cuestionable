@@ -34,22 +34,20 @@
       <span class="sr-only">{{ availability }}</span>
     </div>
 
-    <div class="p-4 lg:p-5 flex flex-col gap-6 flex-1 justify-between">
-      <div class="flex flex-col gap-3">
+    <div class="p-5 lg:p-6 flex flex-col gap-4 flex-1 justify-between">
+      <div class="flex flex-col gap-2">
         <div class="flex gap-2 justify-between items-start">
-        <div class="flex items-center justify-between gap-3">
           <h3
             class="text-xl font-bold text-[var(--text-primary)] m-0 tracking-tight flex-1"
           >
             {{ name }}
           </h3>
+          <div
+            class="flex justify-center items-center px-3 py-1 bg-brand-bg-secondary text-[var(--primary-dark)] text-sm font-semibold rounded-full text-nowrap"
+          >
+            {{ topic }}
+          </div>
         </div>
-        <div
-          class="flex justify-center items-center px-3 py-1 bg-brand-bg-secondary text-[var(--primary-dark)] text-sm font-semibold rounded-full text-nowrap"
-        >
-          {{ topic }}
-        </div>
-      </div>
 
         <div class="flex items-center justify-between gap-3">
           <div
@@ -61,13 +59,21 @@
               v-for="n in 5"
               :key="n"
               class="w-4 h-4"
-              :class="n <= rating ? 'text-amber-400 fill-amber-400' : 'text-slate-200 fill-slate-200'"
+              :class="
+                n <= rating
+                  ? 'text-amber-400 fill-amber-400'
+                  : 'text-slate-200 fill-slate-200'
+              "
             />
           </div>
 
           <div
             class="text-xs font-semibold"
-            :class="availabilityClass === 'available' ? 'text-emerald-600' : 'text-[var(--text-tertiary)]'"
+            :class="
+              availabilityClass === 'available'
+                ? 'text-emerald-600'
+                : 'text-[var(--text-tertiary)]'
+            "
           >
             {{ availability }}
           </div>
@@ -76,7 +82,12 @@
         <p
           v-if="bio"
           class="text-[14px] leading-[1.7] text-[var(--text-secondary)] m-0"
-          style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"
+          style="
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          "
         >
           {{ bio }}
         </p>
@@ -84,7 +95,7 @@
 
       <button
         type="button"
-        class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-xl text-[15px] font-semibold cursor-pointer transition-all duration-200 hover:bg-[var(--primary-dark)] hover:shadow-md active:translate-y-[1px]"
+        class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-[var(--primary)] text-white rounded-xl text-sm font-semibold cursor-pointer transition-all duration-200 hover:bg-[var(--primary-dark)] hover:shadow-md active:translate-y-[1px]"
         @click="showBioModal"
       >
         <span>{{ buttonText }}</span>
