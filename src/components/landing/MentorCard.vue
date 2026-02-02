@@ -15,7 +15,7 @@
         :alt="`Foto de ${name}`"
         loading="lazy"
         decoding="async"
-        class="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-105"
+        class="w-full h-full object-cover object-top block transition-transform duration-500 group-hover:scale-105"
       />
       <div
         v-else
@@ -23,14 +23,7 @@
       >
         {{ initials }}
       </div>
-      <div
-        :class="[
-          'absolute bottom-3 right-3 w-4 h-4 rounded-full border-[2px] border-white shadow-sm',
-          availabilityClass === 'available' ? 'bg-emerald-500' : 'bg-slate-400',
-        ]"
-        :title="availability"
-        aria-hidden="true"
-      ></div>
+
       <span class="sr-only">{{ availability }}</span>
     </div>
 
@@ -49,18 +42,6 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-end gap-3">
-          <div
-            class="text-xs font-semibold"
-            :class="
-              availabilityClass === 'available'
-                ? 'text-emerald-600'
-                : 'text-[var(--text-tertiary)]'
-            "
-          >
-            {{ availability }}
-          </div>
-        </div>
 
         <p
           v-if="bio"
@@ -102,6 +83,10 @@ const props = defineProps({
   availability: {
     type: String,
     required: true,
+  },
+  linkedin: {
+    type: String,
+    default: "",
   },
   image: {
     type: String,
@@ -151,6 +136,7 @@ const showBioModal = () => {
   emit("showBio", {
     name: props.name,
     topic: props.topic,
+    linkedin: props.linkedin,
     bio: props.bio,
     description: props.description,
     helpText: props.helpText,

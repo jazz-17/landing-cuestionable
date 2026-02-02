@@ -13,6 +13,7 @@
         :name="mentor.name"
         :topic="mentor.topic"
         :availability="mentor.availability"
+        :linkedin="mentor.linkedin"
         :image="mentor.image"
         :image-src-set="mentor.imageSrcSet"
         :image-width="mentor.imageWidth"
@@ -32,6 +33,7 @@
     :is-open="isBioModalOpen"
     :mentor-name="selectedBio.name"
     :mentor-topic="selectedBio.topic"
+    :mentor-linkedin="selectedBio.linkedin"
     :mentor-bio="selectedBio.bio"
     :mentor-description="selectedBio.description"
     :mentor-help-text="selectedBio.helpText"
@@ -67,6 +69,7 @@ const isBioModalOpen = ref(false);
 const selectedBio = ref({
   name: "",
   topic: "",
+  linkedin: "",
   bio: "",
   description: "",
   helpText: null,
