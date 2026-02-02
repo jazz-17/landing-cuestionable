@@ -1,9 +1,9 @@
 <template>
   <Dialog :open="isOpen" @update:open="handleOpenChange">
-    <DialogContent class="p-0 focus:outline-0 sm:max-w-3xl md:max-w-4xl gap-0">
+    <DialogContent class="p-0 focus:outline-0 sm:max-w-3xl md:max-w-4xl gap-0 max-h-[85vh] flex flex-col">
       <!-- Header with gradient -->
       <DialogHeader
-        class="relative overflow-hidden bg-gradient-to-br  from-[rgba(190,123,237,0.12)] via-[rgba(190,123,237,0.08)] to-[rgba(74,144,226,0.1)] py-3 px-4"
+        class="relative overflow-hidden bg-gradient-to-br from-[rgba(190,123,237,0.12)] via-[rgba(190,123,237,0.08)] to-[rgba(74,144,226,0.1)] py-3 px-4 shrink-0"
       >
         <!-- Subtle decorative circle -->
         <div
@@ -62,7 +62,7 @@
         </div>
       </DialogHeader>
 
-      <div class="p-0 overflow-y-auto flex-1 sm:max-h-[70vh]">
+      <div class="p-0 overflow-y-auto flex-1 min-h-0">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
           <!-- Left Column: Bio & Help -->
           <div
@@ -242,7 +242,7 @@
       </div>
 
       <!-- Footer Actions -->
-      <DialogFooter class="py-3 px-4">
+      <DialogFooter class="py-3 px-4 shrink-0 border-t border-[var(--border)]/30">
         <Button
           @click="handleOpenChange(false)"
           variant="outline"
