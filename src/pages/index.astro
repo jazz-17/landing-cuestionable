@@ -62,6 +62,7 @@ import milagrosImg from "@/assets/mentors/milagros_moreno.png";
 import maribelReviewImg from "@/assets/mentors/review_maribel.png";
 import nicoleReviewImg from "@/assets/mentors/review_nicole.png";
 import nicoleReview2Img from "@/assets/mentors/review_nicole2.jpeg";
+import luizImg from "@/assets/mentors/luiz_foto.png";
 
 const mentorImageTransform = { format: "webp", widths: [320, 480, 640, 800] };
 const reviewImageTransform = { format: "webp", widths: [480, 800, 1200] };
@@ -93,6 +94,10 @@ const nicoleReviewOptimized = await getImage({
 const nicoleReview2Optimized = await getImage({
   src: nicoleReview2Img,
   ...reviewImageTransform,
+});
+const luizOptimized = await getImage({
+  src: luizImg,
+  ...mentorImageTransform,
 });
 
 const siteUrl = "https://cuestionable.pe";
@@ -232,6 +237,26 @@ const mentors = [
       author: "Guillermo Calderón",
       role: "Estudiante de Economía UNMSM",
     },
+  },
+  {
+    name: "Luiz Quineche",
+    topic: "Ciencia de Datos e IA",
+    availability: "Disponible",
+    linkedin: "https://www.linkedin.com/in/luiz-ignacio-q-7805b7161/",
+    image: luizOptimized.src,
+    imageSrcSet: luizOptimized.srcSet.attribute,
+    imageWidth: luizOptimized.attributes.width,
+    imageHeight: luizOptimized.attributes.height,
+    bio: "Convierto datos en decisiones con impacto social. Guío a estudiantes en sus primeros pasos en ciencia de datos e inteligencia artificial.",
+    description:
+      "Me apasiona transformar datos en información clara y accionable que ayude a tomar mejores decisiones, especialmente en contextos de impacto social. Disfruto diseñar soluciones tecnológicas que conecten análisis, visualización y automatización para resolver problemas reales. Me motiva aprender de forma constante, asumir nuevos retos y colaborar con equipos multidisciplinarios donde la tecnología genera valor tangible.",
+    helpText: {
+      intro:
+        "Puedo guiar a estudiantes de pregrado interesados en ciencia de datos e inteligencia artificial, desde los primeros pasos hasta el desarrollo de proyectos aplicados. Acompaño en el aterrizaje de ideas y en la formulación de propuestas de proyectos en IA.",
+      items: null,
+      outro: null,
+    },
+    reviewsImages: [],
   },
 ];
 
