@@ -1,46 +1,58 @@
-# Astro Starter Kit: Basics
+# CuestionaBle Mentorship Landing Page
 
-```sh
-npm create astro@latest -- --template basics
+A modern, high-performance landing page for a Spanish-language mentorship platform connecting mentors with mentees in Peru.
+
+**Live Site:** [https://cuestionable.pe/](https://cuestionable.pe/)
+
+---
+
+## Tech Stack
+
+- **Framework:** Astro 5 with Vue 3 islands architecture
+- **Styling:** Tailwind CSS v4 with custom design tokens
+- **UI Components:** shadcn-vue (reka-ui base)
+- **Deployment:** Cloudflare Pages
+- **Icons:** Lucide Vue
+
+## Features
+
+- **Hybrid Rendering** — Static-first Astro pages with hydrated Vue components for interactivity
+- **Optimized Images** — Responsive WebP generation with `srcSet` via Astro's image pipeline
+- **Scroll Animations** — Dual animation system (Astro IntersectionObserver + Vue composable) with `prefers-reduced-motion` support
+- **SEO Ready** — Structured data (JSON-LD) for Organization, FAQPage, and ItemList schemas
+- **Video Integration** — YouTube embeds with lazy-loaded thumbnails and modal playback
+- **Accessible UI** — Keyboard navigation, screen reader support, and focus management
+
+## Architecture Highlights
+
+```
+src/
+├── pages/
+│   └── index.astro          # Single-page landing with data in frontmatter
+├── components/
+│   ├── landing/             # Section components (Hero, Mentors, FAQ, etc.)
+│   └── ui/                  # shadcn-vue primitives (Button, Dialog, Accordion)
+├── composables/
+│   └── useScrollReveal.js   # Vue scroll animation composable
+├── assets/mentors/          # Mentor images (processed at build time)
+└── styles/
+    └── global.css           # Design tokens & Tailwind config
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Local Development
 
-## 🚀 Project Structure
+```bash
+# Install dependencies
+npm install
 
-Inside of your Astro project, you'll see the following folders and files:
+# Start dev server (localhost:4321)
+npm run dev
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+# Production build
+npm run build
+
+# Deploy to Cloudflare Pages
+npm run deploy
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Built with Astro + Vue + Tailwind CSS
